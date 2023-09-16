@@ -11,7 +11,7 @@ import {
 } from 'redux/cars/selectors';
 import { fetchCars } from 'redux/cars/operations';
 
-const HomePage = lazy(() => import('pages/HomePage'));
+const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 const CatalogPage = lazy(() => import('pages/CatalogPage/CatalogPage'));
 
 export function App() {
