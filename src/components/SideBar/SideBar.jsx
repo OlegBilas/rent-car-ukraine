@@ -1,7 +1,7 @@
 import React from 'react';
 
-import UserNav from './UserNav/UserNav';
-import LogoutBtn from './LogoutBtn/LogoutBtn';
+import UserNav from '../Header/Header';
+import LogoutBtn from '../MainBtn/MainBtn';
 import { ContainerSideBar } from './SideBar.styled';
 
 function SideBar({ isShown, handleClick }) {

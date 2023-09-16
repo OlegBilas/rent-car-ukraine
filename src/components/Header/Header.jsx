@@ -16,10 +16,10 @@ import {
   NavigationBlock,
   NavigationLegend,
   Wrapper,
-} from './UserNav.styled';
+} from './Header.styled';
 import { format } from 'date-fns';
 
-function UserNav({ handleClick }) {
+export const Header = ({ handleClick }) => {
   const currentMonth = format(new Date(), 'yyyy-MM');
 
   const closeSideBar = () => {
@@ -56,10 +56,8 @@ function UserNav({ handleClick }) {
       </NavigationBlock>
     </Wrapper>
   );
-}
+};
 
 // UserNav.propTypes = {
 
 // }
-
-export default UserNav;

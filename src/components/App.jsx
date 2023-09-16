@@ -1,53 +1,45 @@
 import { lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Loader from './Loader/Loader';
-import { selectIsRefreshing } from 'redux/auth/selectors';
-import { refreshUser } from 'redux/auth/operations';
 import { Route, Routes } from 'react-router-dom';
-import { PrivateRoute } from '../PrivateRoute';
-import { RestrictedRoute } from '../RestrictedRoute';
-import Layout from './Layout/Layout';
+// import { Navigate } from 'react-router-dom';
+import { Layout } from './Layout/Layout';
+import {
+  selectCars,
+  selectFavoriteCars,
+  selectIsLoading,
+} from 'redux/cars/selectors';
+import { fetchCars } from 'redux/cars/operations';
 
 const HomePage = lazy(() => import('pages/HomePage'));
-const RegistrationPage = lazy(() => import('pages/RegistrationPage'));
-const LoginPage = lazy(() => import('pages/LoginPage'));
-const ContactsPage = lazy(() => import('pages/ContactsPage'));
+const CatalogPage = lazy(() => import('pages/CatalogPage/CatalogPage'));
 
 export function App() {
-  const isRefreshing = useSelector(selectIsRefreshing);
+  const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(refreshUser());
+    dispatch(fetchCars());
   }, [dispatch]);
 
-  return isRefreshing ? (
+  const allCars = useSelector(selectCars);
+  const favoriteCars = useSelector(selectFavoriteCars);
+
+  return isLoading ? (
     <Loader />
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route
-          path="register"
-          element={
-            <RestrictedRoute
-              redirectTo="/contacts"
-              component={<RegistrationPage />}
-            />
-          }
+          path="catalog"
+          element={<CatalogPage allCars={allCars} favorite={false} />}
         />
         <Route
-          path="login"
-          element={
-            <RestrictedRoute redirectTo="/contacts" component={<LoginPage />} />
-          }
+          path="favorites"
+          element={<CatalogPage allCars={favoriteCars} favorite={true} />}
         />
-        <Route
-          path="contacts"
-          element={
-            <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
-          }
-        />
+        <Route path="*" element={<Layout />} />
       </Route>
     </Routes>
   );

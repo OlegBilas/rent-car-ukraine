@@ -1,14 +1,14 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { ModalBody, Overlay } from './Modal.styled';
+import { Overlay } from './Modal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
 
-export const Modal = ({ children, closeModal }) => {
+export const Modal = ({ children, toggleModal }) => {
   useEffect(() => {
     const handleKeyDown = e => {
       if (e.code === 'Escape') {
-        closeModal();
+        toggleModal();
       }
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -16,17 +16,17 @@ export const Modal = ({ children, closeModal }) => {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [closeModal]);
+  }, [toggleModal]);
 
   const handleOverlayClick = e => {
     if (e.target === e.currentTarget) {
-      closeModal();
+      toggleModal();
     }
   };
 
   return createPortal(
     <Overlay onClick={handleOverlayClick}>
-      <ModalBody>{children}</ModalBody>
+      <div>{children}</div>
     </Overlay>,
     modalRoot
   );

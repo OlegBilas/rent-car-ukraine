@@ -7,7 +7,7 @@ import { selectIsLoggedIn, selectUser } from 'redux/auth/selectors';
 import { Header, Section } from './Layout.styled';
 import Loader from '../Loader/Loader';
 
-function Layout() {
+export const Layout = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const user = useSelector(selectUser);
   return (
@@ -23,6 +23,4 @@ function Layout() {
       </Section>
     </main>
   );
-}
-
-export default Layout;
+};
