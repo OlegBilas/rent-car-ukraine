@@ -16,6 +16,7 @@ const initialValues = {
 export const SideBar = ({ setQuery }) => {
   const makes = useSelector(selectMakes);
   const cars = useSelector(selectCars);
+  const prices = getPriceRanges(cars); // array of numbers
 
   const getOptions = items =>
     items.map(item => (
@@ -23,8 +24,6 @@ export const SideBar = ({ setQuery }) => {
         {item}
       </option>
     ));
-
-  const prices = getPriceRanges(cars);
 
   return (
     <Formik

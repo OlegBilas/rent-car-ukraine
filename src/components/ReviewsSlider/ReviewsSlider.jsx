@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore from 'swiper';
@@ -8,11 +8,8 @@ import 'swiper/css';
 import 'swiper/css/virtual';
 import 'swiper/css/navigation';
 
-import { ReactComponent as LeftArrow } from '../../images/mainPage/leftArrow.svg';
-import { ReactComponent as RightArrow } from '../../images/mainPage/rightArrow.svg';
-import noPhoto from '../../images/mainPage/noPhoto.png';
-
-import { Stars } from './Stars';
+import { ReactComponent as LeftArrow } from '../../images/HomePage/arrowLeft.svg';
+import { ReactComponent as RightArrow } from '../../images/HomePage/arrowRight.svg';
 
 import {
   Container,
@@ -28,33 +25,23 @@ import {
   ReviewContainer,
 } from './ReviewsSlider.styled';
 
-import { fetchReviews } from 'redux/reviews/operations';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectReviews } from 'redux/reviews/selectors';
-
-// import { reviews } from 'data/reviews_example';
+import { useSelector } from 'react-redux';
+import { selectCars } from 'redux/cars/selectors';
 
 const ReviewsSlider = () => {
-  const dispatch = useDispatch();
-  const reviews = useSelector(selectReviews);
-
-  useEffect(() => {
-    dispatch(fetchReviews());
-  }, [dispatch]);
-
-  const slides = reviews;
+  const cars = useSelector(selectCars);
 
   SwiperCore.use([Autoplay]);
 
   return (
     <section>
       <Container>
-        <Title>Reviews</Title>
+        <Title>Our adverts</Title>
         <div>
           <Swiper
             initialSlide={1}
             slidesPerView={1}
-            autoplay={{ delay: 4000 }}
+            autoplay={{ delay: 3000 }}
             navigation={{
               prevEl: '#prev-button',
               nextEl: '#next-button',
@@ -65,36 +52,27 @@ const ReviewsSlider = () => {
             spaceBetween={24}
             loop={true}
             breakpoints={{
-              320: {
-                slidesPerView: 1,
-                slidesPerGroup: 1,
-              },
               1440: {
                 slidesPerView: 2,
                 slidesPerGroup: 2,
               },
             }}
           >
-            {slides.map(slide => (
-              <SwiperSlide key={slide.owner._id}>
+            {cars.map(car => (
+              <SwiperSlide key={car.id}>
                 <SliderCard>
                   <ReviewContainer>
                     <AvatarWrapper>
-                      {slide.owner.avatarURL ? (
-                        <AvatarImg
-                          src={slide.owner.avatarURL}
-                          alt="UserAvatar"
-                        />
-                      ) : (
-                        <AvatarImg src={noPhoto} alt="UserAvatar" />
-                      )}
+                      <AvatarImg
+                        src={car.img}
+                        alt={`${car.make} ${car.model}, ${car.year}`}
+                      />
                     </AvatarWrapper>
                     <UserInfo>
-                      <Name>{slide.owner.name}</Name>
-                      <Stars rating={slide.rating} />
+                      <Name>{`${car.make} ${car.model}, ${car.year}`}</Name>
                     </UserInfo>
                   </ReviewContainer>
-                  <ReviewText>{slide.comment}</ReviewText>
+                  <ReviewText>{car.comment}</ReviewText>
                 </SliderCard>
               </SwiperSlide>
             ))}

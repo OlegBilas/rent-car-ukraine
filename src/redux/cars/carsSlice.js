@@ -53,7 +53,7 @@ const carsSlice = createSlice({
     setFavorite(state, action) {
       const carIndex = state.favoriteIds.findIndex(id => id === action.payload);
       if (carIndex >= 0) {
-        state.favoriteIds = state.favoriteIds.splice(carIndex, 1);
+        state.favoriteIds.splice(carIndex, 1);
       } else {
         state.favoriteIds.push(action.payload);
       }
@@ -91,7 +91,7 @@ function handlePending(state) {
   state.error = null;
 }
 
-function handleFulfilled(state, ) {
+function handleFulfilled(state) {
   state.isLoading = false;
   state.error = null;
 }

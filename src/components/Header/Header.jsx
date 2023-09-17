@@ -1,7 +1,7 @@
 import React from 'react';
 import { Nav, NavLink } from './Header.styled';
 
-export const Navigation = () => {
+export const Header = () => {
   return (
     <Nav>
       <NavLink to="/">Home</NavLink>

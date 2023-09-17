@@ -1,17 +1,11 @@
 import Description from 'components/Description/Description';
 import ReviewsSlider from 'components/ReviewsSlider/ReviewsSlider';
 
-import { MainPageContainer } from './HomePage.styled';
-
-const MainPage = () => {
+export const HomePage = () => {
   return (
-    <>
-      <MainPageContainer>
-        <Description />
-        <ReviewsSlider />
-      </MainPageContainer>
-    </>
+    <section>
+      <Description />
+      <ReviewsSlider />
+    </section>
   );
 };
-
-export default MainPage;

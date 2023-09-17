@@ -7,7 +7,7 @@ import { CarsList } from 'components/CarsList/CarsList';
 import { SideBar } from 'components/SideBar/SideBar';
 
 import { getCars } from 'utils';
-import { LoadMoreBtn, Section } from './CatalogPage.styled';
+import { LoadMoreBtn } from './CatalogPage.styled';
 
 export const CatalogPage = ({ allCars, favorite }) => {
   const [query, setQuery] = useState({});
@@ -41,7 +41,7 @@ export const CatalogPage = ({ allCars, favorite }) => {
   }, [allCars, carsFiltered, query, page]);
 
   return (
-    <Section>
+    <section>
       <Helmet>
         {favorite ? <title>Your cars</title> : <title>Our adverts</title>}
       </Helmet>
@@ -52,6 +52,6 @@ export const CatalogPage = ({ allCars, favorite }) => {
           Load more
         </LoadMoreBtn>
       )}
-    </Section>
+    </section>
   );
 };
