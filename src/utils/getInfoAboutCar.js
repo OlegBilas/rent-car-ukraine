@@ -37,3 +37,28 @@ export const getFirstLineModal = ({
 export const getSecondLineModal = ({ fuelConsumption, engineSize }) => {
   return [`Fuel Consumption: ${fuelConsumption}`, `Engine Size: ${engineSize}`];
 };
+
+function MyCeil10(val) {
+  return Math.ceil(val / 10) * 10;
+}
+
+export const getPriceRanges = cars => {
+  const priceMinMax = cars.reduce(
+    (reducer, { rentalPrice }) => {
+      rentalPrice < reducer.min && (reducer.min = rentalPrice);
+      rentalPrice > reducer.max && (reducer.max = rentalPrice);
+      return reducer;
+    },
+    { min: Number.MAX_SAFE_INTEGER, max: 0 }
+  );
+
+  const minPrice = MyCeil10(priceMinMax.min);
+  const maxPrice = MyCeil10(priceMinMax.max);
+
+  const priceRanges = [];
+  for (let price = minPrice; price <= maxPrice; price += 10) {
+    priceRanges.push(price);
+  }
+
+  return priceRanges;
+};

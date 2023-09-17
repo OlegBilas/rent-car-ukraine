@@ -3,7 +3,8 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import PropTypes from 'prop-types';
 import { validateSchema } from './validateSchema';
 import { useSelector } from 'react-redux';
-import { selectMakes } from 'redux/cars/selectors';
+import { selectCars, selectMakes } from 'redux/cars/selectors';
+import { getPriceRanges } from 'utils';
 
 const initialValues = {
   make: '',
@@ -14,13 +15,16 @@ const initialValues = {
 
 export const SideBar = ({ setQuery }) => {
   const makes = useSelector(selectMakes);
+  const cars = useSelector(selectCars);
 
-  const getMakesOptions = makes =>
-    makes.map(make => (
-      <option key={make} value={make}>
-        {make.capitalize()}
+  const getOptions = items =>
+    items.map(item => (
+      <option key={item} value={item}>
+        {item}
       </option>
     ));
+
+  const prices = getPriceRanges(cars);
 
   return (
     <Formik
@@ -32,7 +36,7 @@ export const SideBar = ({ setQuery }) => {
         <label>
           Car brand
           <Field name="make" type="text" as="select">
-            {getMakesOptions(makes)}
+            {getOptions(makes)}
           </Field>
           <ErrorMessage name="make" />
         </label>
@@ -40,7 +44,7 @@ export const SideBar = ({ setQuery }) => {
         <label>
           Price/1 hour
           <Field name="rentalPrice" type="text" as="select">
-            <option value="red">Red</option>
+            {getOptions(prices)}
           </Field>
           <ErrorMessage name="rentalPrice" />
         </label>
