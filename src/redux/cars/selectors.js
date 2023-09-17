@@ -1,18 +1,23 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-export const selectCars = state => state.cars.items;
 export const selectIsLoading = state => state.cars.isLoading;
 export const selectError = state => state.cars.error;
-export const selectFavoriteIds = state => state.cars.favoriteIds;
+export const selectMakes = state => state.cars.makes;
+const selectAllCars = state => state.cars.items;
+const selectFavoriteIds = state => state.cars.favoriteIds;
 
-export const selectFavoriteCars = createSelector(
-  [selectFavoriteIds, selectCars],
+export const selectCars = createSelector(
+  [selectFavoriteIds, selectAllCars],
   (favoriteIds, items) => {
-    const favoriteCars = [];
+    const result = items.map(car => (car.favorite = false));
     favoriteIds.forEach(id => {
-      const carFinded = items.find(car => car.id === id);
-      carFinded && favoriteCars.push(carFinded);
+      const carFinded = result.find(car => car.id === id);
+      carFinded && (carFinded.favorite = true);
     });
-    return favoriteCars;
   }
 );
+
+export const selectFavoriteCars = () => {
+  const items = selectCars();
+  return items.filter(car => car.favorite === true);
+};

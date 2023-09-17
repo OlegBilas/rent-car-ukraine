@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { fetchCars } from 'redux/cars/operations';
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+import { fetchCars, fetchMakes } from 'redux/cars/operations';
 
 // const initialItems = [
 // {"id": 9582,
@@ -28,11 +28,23 @@ import { fetchCars } from 'redux/cars/operations';
 // "mileage": 5858},
 // ];
 
+const STATUS = {
+  FULFILLED: 'fulfilled',
+  PENDING: 'pending',
+  REJECTED: 'rejected',
+};
+
+const actionGenerators = [fetchCars, fetchMakes];
+
+const getActionGeneratorsWithType = status =>
+  actionGenerators.map(generator => generator[status]);
+
 const carsSlice = createSlice({
   name: 'cars',
   initialState: {
     items: [],
     favoriteIds: [],
+    makes: [],
     isLoading: false,
     error: null,
   },
@@ -49,20 +61,37 @@ const carsSlice = createSlice({
   },
   extraReducers: builder => {
     builder
-      .addCase(fetchCars.pending, handlePending)
-      .addCase(fetchCars.fulfilled, handleFulfilled)
-      .addCase(fetchCars.rejected, handleRejected);
+      .addCase(fetchCars.fulfilled, handleFetchCars)
+      .addCase(fetchMakes.fulfilled, handleFetchMakes)
+      .addMatcher(
+        isAnyOf(...getActionGeneratorsWithType(STATUS.PENDING)),
+        handlePending
+      )
+      .addMatcher(
+        isAnyOf(...getActionGeneratorsWithType(STATUS.FULFILLED)),
+        handleFulfilled
+      )
+      .addMatcher(
+        isAnyOf(...getActionGeneratorsWithType(STATUS.REJECTED)),
+        handleRejected
+      );
   },
 });
+
+function handleFetchCars(state, action) {
+  state.items = action.payload;
+}
+
+function handleFetchMakes(state, action) {
+  state.makes = action.payload;
+}
 
 function handlePending(state) {
   state.isLoading = true;
   state.error = null;
 }
 
-function handleFulfilled(state, action) {
-  state.items = action.payload;
-
+function handleFulfilled(state, ) {
   state.isLoading = false;
   state.error = null;
 }
