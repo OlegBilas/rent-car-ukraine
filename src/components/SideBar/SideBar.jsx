@@ -5,6 +5,21 @@ import { validateSchema } from './validateSchema';
 import { useSelector } from 'react-redux';
 import { selectCars, selectMakes } from 'redux/cars/selectors';
 import { getPriceRanges } from 'utils';
+import { NumericFormat } from 'react-number-format';
+import * as Yup from 'yup';
+
+function NumberField({ field }) {
+  return (
+    <NumericFormat
+      {...field}
+      decimalScale={0}
+      prefix={'$'}
+      valueIsNumericString={true}
+      thousandSeparator={true}
+      allowNegative={false}
+    />
+  );
+}
 
 const initialValues = {
   make: '',
@@ -29,12 +44,13 @@ export const SideBar = ({ setQuery }) => {
     <Formik
       initialValues={initialValues}
       // validationSchema={validateSchema}
+
       onSubmit={values => setQuery(values)}
     >
       <Form>
         <label>
           Car brand
-          <Field name="make" type="text" as="select">
+          <Field name="make" type="text" as="select" value={''}>
             {getOptions(makes)}
           </Field>
           <ErrorMessage name="make" />
@@ -50,9 +66,9 @@ export const SideBar = ({ setQuery }) => {
 
         <label>
           Сar mileage/km
-          <Field name="mileageFrom" type="text" />
+          <Field name="mileageFrom" type="number" component={NumberField} />
           <ErrorMessage name="mileageFrom" />
-          <Field name="mileageTo" type="text" />
+          <Field name="mileageTo" type="number" component={NumberField} />
           <ErrorMessage name="mileageTo" />
         </label>
 

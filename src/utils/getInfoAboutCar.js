@@ -12,7 +12,7 @@ export const getFirstLine = ({ address, rentalCompany, accessories }) => {
   const array = [city, country, rentalCompany];
 
   for (const item of accessories) {
-    if (item.toLowerCase().contains('premium')) return array.push('Premium');
+    if (item.toLowerCase().includes('premium')) return array.push('Premium');
   }
 
   return array;
@@ -43,8 +43,13 @@ function MyCeil10(val) {
 }
 
 export const getPriceRanges = cars => {
-  const priceMinMax = cars.reduce(
-    (reducer, { rentalPrice }) => {
+  // Нормалізація цін
+  const pricesArray = cars.map(({ rentalPrice }) =>
+    Number.parseInt(rentalPrice.replaceAll(',', '').replaceAll('$', ''))
+  );
+
+  const priceMinMax = pricesArray.reduce(
+    (reducer, rentalPrice) => {
       rentalPrice < reducer.min && (reducer.min = rentalPrice);
       rentalPrice > reducer.max && (reducer.max = rentalPrice);
       return reducer;

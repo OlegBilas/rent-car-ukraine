@@ -9,23 +9,15 @@ const selectFavoriteIds = state => state.cars.favoriteIds;
 export const selectCars = createSelector(
   [selectFavoriteIds, selectAllCars],
   (favoriteIds, items) => {
-    console.log(items);
-    console.log(favoriteIds);
     const result = items.map(car => ({ ...car, favorite: false }));
 
     favoriteIds.forEach(id => {
       const carFinded = result.find(car => car.id === id);
       carFinded && (carFinded.favorite = true);
     });
-
     return result;
   }
 );
-
-// export const selectFavoriteCars = state => {
-//   const items = selectCars(state);
-//   return items.filter(car => car.favorite === true);
-// };
 
 export const selectFavoriteCars = createSelector([selectCars], items =>
   items.filter(car => car.favorite === true)

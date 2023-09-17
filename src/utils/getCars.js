@@ -16,21 +16,19 @@ export const getCars = (cars, query, page, PER_PAGE = 8) => {
   }
 
   if (mileageFrom) {
-    result = result.filter(
-      car =>
-        Number.parseInt(car.mileageFrom.replaceAll(',', '')) >=
-        Number.parseInt(mileageFrom.replaceAll(',', ''))
+    const mileageFromForm = Number.parseInt(
+      mileageFrom.replaceAll('$', '').replaceAll(',', '')
     );
+    result = result.filter(car => car.mileage >= mileageFromForm);
   }
 
   if (mileageTo) {
-    result = result.filter(
-      car =>
-        Number.parseInt(car.mileageTo.replaceAll(',', '')) <=
-        Number.parseInt(mileageTo.replaceAll(',', ''))
+    const mileageFromForm = Number.parseInt(
+      mileageTo.replaceAll('$', '').replaceAll(',', '')
     );
+    result = result.filter(car => car.mileage <= mileageFromForm);
   }
 
-  const index = page * PER_PAGE - 1;
+  const index = page * PER_PAGE - PER_PAGE;
   return result.slice(index, index + PER_PAGE);
 };

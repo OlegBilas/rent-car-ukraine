@@ -6,13 +6,13 @@ import { Header } from 'components/Header/Header';
 
 export const Layout = () => {
   return (
-    <main>
+    <>
       <Header />
-      <>
+      <main>
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
-      </>
-    </main>
+      </main>
+    </>
   );
 };
