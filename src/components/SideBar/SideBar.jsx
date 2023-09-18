@@ -78,7 +78,7 @@ export const SideBar = ({ setQuery }) => {
           <Form>
             <label>
               Car brand
-              <Field name="make" type="text" as="select" defaultValue="">
+              <Field name="make" type="text" as="select">
                 {getOptions(makes)}
               </Field>
               <ErrorMessage name="make" />
@@ -86,12 +86,7 @@ export const SideBar = ({ setQuery }) => {
 
             <label>
               Price/1 hour
-              <Field
-                name="rentalPrice"
-                type="number"
-                as="select"
-                defaultValue={0}
-              >
+              <Field name="rentalPrice" type="number" as="select">
                 {getOptions(prices)}
               </Field>
               <ErrorMessage name="rentalPrice" />

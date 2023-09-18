@@ -5,15 +5,18 @@ export const Nav = styled.nav`
   display: flex;
   justify-content: end;
   align-items: center;
-  gap: 8px;
+  gap: 24px;
+  margin-top: 32px;
+  margin-bottom: 32px;
   margin-left: auto;
+  margin-right: 128px;
   background-color: #fff;
 `;
 
 export const NavLink = styled(NavLinkForStyle)`
   color: #0b44cd;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 24px;
+  font-weight: 600;
   line-height: 1.5;
   text-decoration-line: none;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);

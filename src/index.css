@@ -60,6 +60,8 @@ code {
 
 section {
   padding: 50px 128px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 a {
@@ -79,7 +81,11 @@ button {
 }
 
 a:hover,
-a:focus,
+a:focus {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
 button:hover,
 button:focus {
   cursor: pointer;
@@ -105,6 +111,6 @@ ul {
 
 img {
   display: block;
-  max-width: 100%;
+  width: 100%;
   /* height: auto; */
 }

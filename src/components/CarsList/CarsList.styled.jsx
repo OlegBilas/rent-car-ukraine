@@ -4,13 +4,15 @@ import { ReactComponent as LikeStyled } from 'images/CarsList/like.svg';
 export const List = styled.ul`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(274px, 426px);
-  grid-row-gap: 29px;
-  grid-column-gap: 50px;
+  /* grid-template-rows: repeat(274px, 426px); */
+  grid-template-rows: auto;
+  grid-row-gap: 50px;
+  grid-column-gap: 28px;
   margin-bottom: 100px;
 `;
 
 export const Item = styled.li`
+  width: 274px;
   position: relative;
   color: rgba(18, 20, 23, 0.5);
   font-size: 12px;
@@ -45,6 +47,11 @@ export const Like = styled(LikeStyled)`
   }
   &.non-liked {
     stroke: rgba(255, 255, 255, 0.8);
+  }
+  &:focus,
+  &:hover {
+    fill: rgba(52, 112, 255, 1);
+    stroke: currentColor;
   }
 `;
 

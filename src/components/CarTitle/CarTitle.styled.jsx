@@ -19,7 +19,7 @@ export const Model = styled.span`
   color: #3470ff;
 `;
 
-export const Price = styled.p`
+export const Price = styled.span`
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;

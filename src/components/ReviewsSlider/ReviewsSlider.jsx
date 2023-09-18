@@ -34,60 +34,58 @@ const ReviewsSlider = () => {
   SwiperCore.use([Autoplay]);
 
   return (
-    <section>
-      <Container>
-        <Title>Our adverts</Title>
-        <div>
-          <Swiper
-            initialSlide={1}
-            slidesPerView={1}
-            autoplay={{ delay: 3000 }}
-            navigation={{
-              prevEl: '#prev-button',
-              nextEl: '#next-button',
-            }}
-            modules={[Navigation]}
-            direction={'horizontal'}
-            autoHeight={true}
-            spaceBetween={24}
-            loop={true}
-            breakpoints={{
-              1440: {
-                slidesPerView: 2,
-                slidesPerGroup: 2,
-              },
-            }}
-          >
-            {cars.map(car => (
-              <SwiperSlide key={car.id}>
-                <SliderCard>
-                  <ReviewContainer>
-                    <AvatarWrapper>
-                      <AvatarImg
-                        src={car.img}
-                        alt={`${car.make} ${car.model}, ${car.year}`}
-                      />
-                    </AvatarWrapper>
-                    <UserInfo>
-                      <Name>{`${car.make} ${car.model}, ${car.year}`}</Name>
-                    </UserInfo>
-                  </ReviewContainer>
-                  <ReviewText>{car.comment}</ReviewText>
-                </SliderCard>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-        <SwiperNavBox>
-          <SwiperNavBtn id="prev-button">
-            <LeftArrow />
-          </SwiperNavBtn>
-          <SwiperNavBtn id="next-button">
-            <RightArrow />
-          </SwiperNavBtn>
-        </SwiperNavBox>
-      </Container>
-    </section>
+    <Container>
+      <Title>Our adverts</Title>
+      <div>
+        <Swiper
+          initialSlide={1}
+          slidesPerView={1}
+          autoplay={{ delay: 3000 }}
+          navigation={{
+            prevEl: '#prev-button',
+            nextEl: '#next-button',
+          }}
+          modules={[Navigation]}
+          direction={'horizontal'}
+          autoHeight={true}
+          spaceBetween={24}
+          loop={true}
+          breakpoints={{
+            1440: {
+              slidesPerView: 2,
+              slidesPerGroup: 2,
+            },
+          }}
+        >
+          {cars.map(car => (
+            <SwiperSlide key={car.id}>
+              <SliderCard>
+                <ReviewContainer>
+                  <AvatarWrapper>
+                    <AvatarImg
+                      src={car.img}
+                      alt={`${car.make} ${car.model}, ${car.year}`}
+                    />
+                  </AvatarWrapper>
+                  <UserInfo>
+                    <Name>{`${car.make} ${car.model}, ${car.year}`}</Name>
+                  </UserInfo>
+                </ReviewContainer>
+                <ReviewText>{car.comment}</ReviewText>
+              </SliderCard>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+      <SwiperNavBox>
+        <SwiperNavBtn id="prev-button">
+          <LeftArrow />
+        </SwiperNavBtn>
+        <SwiperNavBtn id="next-button">
+          <RightArrow />
+        </SwiperNavBtn>
+      </SwiperNavBox>
+    </Container>
   );
 };
 export default ReviewsSlider;

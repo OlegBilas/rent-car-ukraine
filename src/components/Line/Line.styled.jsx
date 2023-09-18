@@ -11,10 +11,8 @@ export const LineList = styled.ul`
   & > li {
     padding-left: 6px;
     padding-right: 6px;
-    border-right: 1px solid rgba(18, 20, 23, 0.1);
-    overflow: hidden;
-    text-overflow: ellipsis;
     white-space: nowrap;
+    border-right: 1px solid rgba(18, 20, 23, 0.1);
   }
   & > li:first-child {
     padding-left: 0px;
@@ -22,5 +20,8 @@ export const LineList = styled.ul`
   & > li:last-child {
     padding-left: 6px;
     border-right: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 `;
