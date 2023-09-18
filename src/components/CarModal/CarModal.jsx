@@ -18,7 +18,8 @@ import { getFirstLineModal, getSecondLineModal } from 'utils';
 export const CarModal = ({ car, toggleModal }) => {
   const getOtherRequirements = ({ rentalConditions, mileage, rentalPrice }) => {
     let array = rentalConditions.split('\n');
-    const age = Number.parseInt(array[0]);
+    const age = array[0].slice(-2);
+
     array = array.slice(1);
     const price = `${rentalPrice.replace('$', '')}$`;
     return [
