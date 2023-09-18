@@ -5,7 +5,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(../assets/fonts/Montserrat-Regular.ttf);
+  src: url(./fonts/Montserrat-Regular.ttf);
   unicode-range: U+0100-02AF, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF,
     U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
@@ -15,7 +15,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(../assets/fonts/Manrope-Regular.ttf);
+  src: url(./fonts/Manrope-Regular.ttf);
   unicode-range: U+0100-02AF, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF,
     U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
@@ -25,7 +25,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(../assets/fonts/Manrope-Medium.ttf);
+  src: url(./fonts/Manrope-Medium.ttf);
   unicode-range: U+0100-02AF, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF,
     U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
@@ -35,7 +35,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(../assets/fonts/Manrope-SemiBold.ttf);
+  src: url(./fonts/Manrope-SemiBold.ttf);
   unicode-range: U+0100-02AF, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF,
     U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
@@ -59,7 +59,7 @@ code {
 }
 
 section {
-  padding: 115px auto;
+  padding: 50px 128px;
 }
 
 a {
@@ -70,6 +70,7 @@ a {
 button {
   border-radius: 12px;
   background-color: #3470ff;
+  border-color: currentColor;
   font-weight: 600;
   font-size: 14px;
   line-height: 1.42857;
@@ -97,8 +98,13 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+ul {
+  list-style-type: none;
+}
+
 img {
   display: block;
   max-width: 100%;
-  height: auto;
+  /* height: auto; */
 }

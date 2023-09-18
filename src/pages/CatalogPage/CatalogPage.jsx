@@ -22,7 +22,7 @@ export const CatalogPage = ({ allCars, favorite }) => {
 
   useEffect(() => {
     const carsFiltered = getCars(allCars, query, page);
-    console.log(allCars, page, carsFiltered);
+
     if (carsFiltered.length === 0 && page === 1) {
       // відсутні дані
       toast.error("We didn't find any adverts on your request!");

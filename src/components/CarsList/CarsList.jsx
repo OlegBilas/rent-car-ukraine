@@ -24,7 +24,7 @@ export const CarsList = ({ cars }) => {
             src={car.img}
             alt={`${car.make} ${car.model}, ${car.year}`}
             width="100%"
-            height="auto"
+            height="268"
           />
           <CarTitle car={car} />
           <FirstLine carInfo={getFirstLine(car)} />
@@ -33,7 +33,7 @@ export const CarsList = ({ cars }) => {
             Learn more
           </LearnMoreBtn>
           {showModal && (
-            <Modal car={car} toggleModal={toggleModal}>
+            <Modal toggleModal={toggleModal}>
               <CarModal car={car} toggleModal={toggleModal} />
             </Modal>
           )}

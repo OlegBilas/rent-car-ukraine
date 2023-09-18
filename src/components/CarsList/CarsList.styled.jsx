@@ -1,4 +1,4 @@
-import { LineList } from 'components/Line/Line.styled';
+import { Line as LineStyled } from 'components/Line/Line';
 import styled from 'styled-components';
 
 export const List = styled.ul`
@@ -26,16 +26,20 @@ export const Image = styled.img`
       rgba(18, 20, 23, 0) 41.07%
     ),
     #f3f3f2;
+  object-fit: cover;
+  object-position: 50% 50%;
   overflow: hidden;
 `;
 
-export const FirstLine = styled(LineList)`
+export const FirstLine = styled(LineStyled)`
   margin-bottom: 4px;
 `;
 
-export const SecondLine = styled(LineList)`
+export const SecondLine = styled(LineStyled)`
   margin-bottom: 28px;
 `;
 export const LearnMoreBtn = styled.button`
-  padding: 12px 100px;
+  width: 100%;
+  padding: 12px;
+  text-align: center;
 `;

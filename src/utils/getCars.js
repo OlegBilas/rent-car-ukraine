@@ -11,22 +11,25 @@ export const getCars = (cars, query, page, PER_PAGE = 8) => {
 
   if (rentalPrice) {
     result = result.filter(
-      car => Number.parseInt(car.rentalPrice) <= Number.parseInt(rentalPrice)
+      car =>
+        Number.parseInt(
+          car.rentalPrice.replaceAll('$', '').replaceAll(',', '')
+        ) <= Number.parseInt(rentalPrice)
     );
   }
 
   if (mileageFrom) {
-    const mileageFromForm = Number.parseInt(
-      mileageFrom.replaceAll('$', '').replaceAll(',', '')
-    );
-    result = result.filter(car => car.mileage >= mileageFromForm);
+    // const mileageFromForm = Number.parseInt(
+    //   mileageFrom.replaceAll('$', '').replaceAll(',', '')
+    // );
+    result = result.filter(car => car.mileage >= mileageFrom);
   }
 
   if (mileageTo) {
-    const mileageFromForm = Number.parseInt(
-      mileageTo.replaceAll('$', '').replaceAll(',', '')
-    );
-    result = result.filter(car => car.mileage <= mileageFromForm);
+    // const mileageFromForm = Number.parseInt(
+    //   mileageTo.replaceAll('$', '').replaceAll(',', '')
+    // );
+    result = result.filter(car => car.mileage <= mileageTo);
   }
 
   const index = page * PER_PAGE - PER_PAGE;

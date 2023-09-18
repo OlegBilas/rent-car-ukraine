@@ -1,32 +1,20 @@
+import { Field as FieldStyled } from 'formik';
 import styled from 'styled-components';
+export const Field = styled(FieldStyled)`
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: #f7f7fb;
+  color: #121417;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.11111;
 
-export const ContainerSideBar = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-
-  width: 225px;
-  padding: 24px 20px;
-
-  background: ${({ theme }) => theme.colors.backgroundSideBar};
-
-  @media screen and (min-width: 768px) {
-    width: 289px;
-    padding: 24px 32px;
-  }
-  @media screen and (max-width: 1439px) {
-    position: absolute;
-    z-index: 10;
-    &.shown {
-      transform: translateX(0%);
-      opacity: 1;
-    }
-
-    &.hidden {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
-      opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  & > option {
+    color: rgba(18, 20, 23, 0.2);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.25;
   }
 `;

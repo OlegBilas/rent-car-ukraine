@@ -12,7 +12,10 @@ export const getFirstLine = ({ address, rentalCompany, accessories }) => {
   const array = [city, country, rentalCompany];
 
   for (const item of accessories) {
-    if (item.toLowerCase().includes('premium')) return array.push('Premium');
+    if (item.toLowerCase().includes('premium')) {
+      array.push('Premium');
+      break;
+    }
   }
 
   return array;
@@ -22,13 +25,7 @@ export const getSecondLine = ({ type, model, mileage, functionalities }) => {
   return [type, model, mileage, functionalities[0]];
 };
 
-export const getFirstLineModal = ({
-  address,
-  rentalCompany,
-  id,
-  year,
-  type,
-}) => {
+export const getFirstLineModal = ({ address, id, year, type }) => {
   const { city, country } = getCarLocation(address);
 
   return [city, country, `id: ${id}`, `Year: ${year}`, `Type: ${type}`];

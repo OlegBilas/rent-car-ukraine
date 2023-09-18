@@ -1,19 +1,24 @@
 import styled from 'styled-components';
 
 export const LineList = styled.ul`
-  display: inline-flex;
+  display: flex;
   justify-content: start;
+  color: rgba(18, 20, 23, 0.5);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
 
   & > li {
     padding-left: 6px;
     padding-right: 6px;
     border-right: 1px solid rgba(18, 20, 23, 0.1);
+    overflow-x: hidden;
   }
   & > li:first-child {
-    padding-right: 6px;
-    border-right: 1px solid rgba(18, 20, 23, 0.1);
+    padding-left: 0px;
   }
   & > li:last-child {
     padding-left: 6px;
+    border-right: none;
   }
 `;
