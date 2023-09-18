@@ -1,8 +1,8 @@
 export const getCarLocation = address => {
   const array = address.split(',');
   return {
-    city: array[2],
-    country: array[1],
+    city: array[1],
+    country: array[2],
   };
 };
 

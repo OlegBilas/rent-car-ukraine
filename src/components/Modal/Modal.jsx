@@ -12,9 +12,11 @@ export const Modal = ({ children, toggleModal }) => {
       }
     };
     window.addEventListener('keydown', handleKeyDown);
+    document.body.classList.add('lock-scroll');
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
+      document.body.classList.remove('lock-scroll');
     };
   }, [toggleModal]);
 

@@ -67,6 +67,8 @@ export const SideBar = ({ setQuery }) => {
       enableReinitialize
       // validationSchema={validateSchema}
       validationSchema={Yup.object().shape({
+        make: Yup.string(),
+        rentalPrice: Yup.number(),
         mileageFrom: Yup.number(),
         mileageTo: Yup.number(),
       })}

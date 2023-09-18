@@ -53,6 +53,10 @@ body {
   background-color: #ffffff;
 }
 
+body.lock-scroll {
+  overflow: hidden;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

@@ -7,7 +7,7 @@ export const Container = styled.div`
   position: relative;
   width: 541px;
   /* height: 752px; */
-  padding: 40px 36px;
+  padding: 40px;
   border-radius: 24px;
   background: #fff;
 `;
@@ -34,19 +34,12 @@ export const CloseBtn = styled.button`
 `;
 
 export const Close = styled(CloseStyled)`
-  /* fill: currentColor;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  &.liked {
-    stroke: currentColor;
-  }
-  &.non-liked {
-    stroke: rgba(255, 255, 255, 0.8);
-  }
+  stroke: #121417;
+
   &:focus,
   &:hover {
-    fill: rgba(52, 112, 255, 1);
-    stroke: currentColor;
-  } */
+    stroke: rgba(52, 112, 255, 1);
+  }
 `;
 
 export const CarTitle = styled(CarTitleStyled)`
@@ -61,4 +54,56 @@ export const FirstLineModal = styled(Line)`
 
 export const SecondLineModal = styled(Line)`
   margin-bottom: 14px;
+`;
+
+export const Description = styled.p`
+  margin-top: 14px;
+  margin-bottom: 24px;
+
+  color: #121417;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857;
+`;
+
+export const Title = styled.h3`
+  color: #121417;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.42857;
+`;
+
+export const ListRequirements = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+
+  & > li {
+    padding: 7px 14px;
+    border-radius: 35px;
+    background-color: #f9f9f9;
+
+    color: #363535;
+
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.24px;
+
+    & > span {
+      color: #3470ff;
+    }
+  }
+`;
+
+export const PhoneUs = styled.a`
+  padding: 12px 50px;
+  border-radius: 12px;
+  background: #3470ff;
+
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.42857;
 `;
