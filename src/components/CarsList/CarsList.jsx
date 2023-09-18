@@ -1,4 +1,3 @@
-import { CarModal } from 'components/CarModal/CarModal';
 import {
   List,
   Item,
@@ -7,7 +6,6 @@ import {
   Like,
   LikeBtn,
 } from './CarsList.styled';
-import { Modal } from 'components/Modal/Modal';
 import { useState } from 'react';
 import { getFirstLine, getSecondLine } from 'utils';
 import { CarTitle } from 'components/CarTitle/CarTitle';
