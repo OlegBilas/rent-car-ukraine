@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/rent-car-ukraine/static/css/main.6f7f3c88.css",
-    "main.js": "/rent-car-ukraine/static/js/main.a367c2c6.js",
+    "main.js": "/rent-car-ukraine/static/js/main.1b9d4b98.js",
     "static/media/Montserrat-Regular.ttf": "/rent-car-ukraine/static/media/Montserrat-Regular.24785cc015b27a3e964b.ttf",
     "static/media/Manrope-SemiBold.ttf": "/rent-car-ukraine/static/media/Manrope-SemiBold.310f108cc524df0e5ffc.ttf",
     "static/media/Manrope-Medium.ttf": "/rent-car-ukraine/static/media/Manrope-Medium.08894ccb04665d1a9d53.ttf",
@@ -10,11 +10,12 @@
     "static/media/arrowRight.svg": "/rent-car-ukraine/static/media/arrowRight.87505d84e6e7b322c94ee4d60533dd47.svg",
     "static/media/like.svg": "/rent-car-ukraine/static/media/like.65af1dbb3feb2faaed478689c4a5638f.svg",
     "static/media/arrowLeft.svg": "/rent-car-ukraine/static/media/arrowLeft.a24bc4f2d3f004d9549a80985e7c88ba.svg",
+    "static/media/x.svg": "/rent-car-ukraine/static/media/x.1b4276412554a7cfde619c3b40707e4f.svg",
     "main.6f7f3c88.css.map": "/rent-car-ukraine/static/css/main.6f7f3c88.css.map",
-    "main.a367c2c6.js.map": "/rent-car-ukraine/static/js/main.a367c2c6.js.map"
+    "main.1b9d4b98.js.map": "/rent-car-ukraine/static/js/main.1b9d4b98.js.map"
   },
   "entrypoints": [
     "static/css/main.6f7f3c88.css",
-    "static/js/main.a367c2c6.js"
+    "static/js/main.1b9d4b98.js"
   ]
 }
