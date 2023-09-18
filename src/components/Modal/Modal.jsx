@@ -25,9 +25,7 @@ export const Modal = ({ children, toggleModal }) => {
   };
 
   return createPortal(
-    <Overlay onClick={handleOverlayClick}>
-      <div>{children}</div>
-    </Overlay>,
+    <Overlay onClick={handleOverlayClick}>{children}</Overlay>,
     modalRoot
   );
 };

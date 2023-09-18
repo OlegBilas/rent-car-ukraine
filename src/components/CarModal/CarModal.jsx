@@ -1,5 +1,7 @@
 import { CarTitle } from 'components/CarTitle/CarTitle';
 import {
+  Close,
+  CloseBtn,
   Container,
   FirstLineModal,
   Img,
@@ -10,7 +12,10 @@ import { getFirstLineModal, getSecondLineModal } from 'utils';
 export const CarModal = ({ car, toggleModal }) => {
   return (
     <Container>
-      <button type="button" onClick={() => toggleModal()}></button>
+      <CloseBtn type="button" onClick={() => toggleModal()}>
+        <Close width={24} height={24} />
+      </CloseBtn>
+
       <Img
         src={car.img}
         alt={`${car.make} ${car.model}, ${car.year}`}

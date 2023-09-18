@@ -14,10 +14,16 @@ import { CarTitle } from 'components/CarTitle/CarTitle';
 import { Line } from 'components/Line/Line';
 import { useDispatch } from 'react-redux';
 import { setFavorite } from 'redux/cars/carsSlice';
+import { ModalWrapper } from 'components/ModalWrapper/ModalWrapper';
 
 export const CarsList = ({ cars }) => {
   const [showModal, setShowModal] = useState(false);
-  const toggleModal = () => setShowModal(prevState => !prevState);
+  const [car, setCar] = useState();
+
+  const toggleModal = car => {
+    setShowModal(prevState => !prevState);
+    setCar(car);
+  };
 
   const dispatch = useDispatch();
   const handleClick = id => {
@@ -48,16 +54,12 @@ export const CarsList = ({ cars }) => {
           <CarTitle car={car} />
           <Line carInfo={getFirstLine(car)} />
           <Line carInfo={getSecondLine(car)} />
-          <LearnMoreBtn type="buton" onClick={toggleModal}>
+          <LearnMoreBtn type="buton" onClick={() => toggleModal(car)}>
             Learn more
           </LearnMoreBtn>
-          {showModal && (
-            <Modal toggleModal={toggleModal}>
-              <CarModal car={car} toggleModal={toggleModal} />
-            </Modal>
-          )}
         </Item>
       ))}
+      {showModal && <ModalWrapper car={car} toggleModal={toggleModal} />}
     </List>
   );
 };

@@ -13,4 +13,10 @@ export const LoadMoreBtn = styled.button`
   font-weight: 500;
   line-height: 1.5;
   text-decoration-line: underline;
+
+  &:focus,
+  &:hover {
+    background-color: inherit;
+    color: rgba(11, 68, 205, 1);
+  }
 `;
