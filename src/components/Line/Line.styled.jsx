@@ -12,7 +12,9 @@ export const LineList = styled.ul`
     padding-left: 6px;
     padding-right: 6px;
     border-right: 1px solid rgba(18, 20, 23, 0.1);
-    overflow-x: hidden;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   & > li:first-child {
     padding-left: 0px;

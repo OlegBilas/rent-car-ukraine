@@ -1,20 +1,51 @@
-import { Line as LineStyled } from 'components/Line/Line';
 import styled from 'styled-components';
+import { ReactComponent as LikeStyled } from 'images/CarsList/like.svg';
 
 export const List = styled.ul`
-  /* max-width: calc(100% - 20px); */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(274px, 426px);
   grid-row-gap: 29px;
   grid-column-gap: 50px;
+  margin-bottom: 100px;
 `;
 
 export const Item = styled.li`
+  position: relative;
   color: rgba(18, 20, 23, 0.5);
   font-size: 12px;
   font-weight: 400;
   line-height: 1.5px;
+`;
+
+export const LikeBtn = styled.button`
+  position: absolute;
+  top: 14px;
+  right: 14px;
+
+  background-color: transparent;
+  border: none;
+
+  &:focus,
+  &:hover {
+    background-color: transparent;
+  }
+  &.liked {
+    color: rgba(52, 112, 255, 1);
+  }
+  &.non-liked {
+    color: transparent;
+  }
+`;
+
+export const Like = styled(LikeStyled)`
+  fill: currentColor;
+  &.liked {
+    stroke: currentColor;
+  }
+  &.non-liked {
+    stroke: rgba(255, 255, 255, 0.8);
+  }
 `;
 
 export const Image = styled.img`
@@ -31,15 +62,9 @@ export const Image = styled.img`
   overflow: hidden;
 `;
 
-export const FirstLine = styled(LineStyled)`
-  margin-bottom: 4px;
-`;
-
-export const SecondLine = styled(LineStyled)`
-  margin-bottom: 28px;
-`;
 export const LearnMoreBtn = styled.button`
   width: 100%;
   padding: 12px;
   text-align: center;
+  margin-top: 28px;
 `;

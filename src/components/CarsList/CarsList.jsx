@@ -3,23 +3,42 @@ import {
   List,
   Item,
   Image,
-  FirstLine,
-  SecondLine,
   LearnMoreBtn,
+  Like,
+  LikeBtn,
 } from './CarsList.styled';
 import { Modal } from 'components/Modal/Modal';
 import { useState } from 'react';
 import { getFirstLine, getSecondLine } from 'utils';
 import { CarTitle } from 'components/CarTitle/CarTitle';
+import { Line } from 'components/Line/Line';
+import { useDispatch } from 'react-redux';
+import { setFavorite } from 'redux/cars/carsSlice';
 
 export const CarsList = ({ cars }) => {
   const [showModal, setShowModal] = useState(false);
   const toggleModal = () => setShowModal(prevState => !prevState);
 
+  const dispatch = useDispatch();
+  const handleClick = id => {
+    dispatch(setFavorite(id));
+  };
+
   return (
     <List>
       {cars.map(car => (
         <Item key={car.id}>
+          <LikeBtn
+            type="button"
+            className={car.favorite ? 'liked' : 'non-liked'}
+            onClick={() => handleClick(car.id)}
+          >
+            <Like
+              width={18}
+              height={18}
+              className={car.favorite ? 'liked' : 'non-liked'}
+            />
+          </LikeBtn>
           <Image
             src={car.img}
             alt={`${car.make} ${car.model}, ${car.year}`}
@@ -27,8 +46,8 @@ export const CarsList = ({ cars }) => {
             height="268"
           />
           <CarTitle car={car} />
-          <FirstLine carInfo={getFirstLine(car)} />
-          <SecondLine carInfo={getSecondLine(car)} />
+          <Line carInfo={getFirstLine(car)} />
+          <Line carInfo={getSecondLine(car)} />
           <LearnMoreBtn type="buton" onClick={toggleModal}>
             Learn more
           </LearnMoreBtn>
