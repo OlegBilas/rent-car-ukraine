@@ -1,10 +1,11 @@
 import React from 'react';
 import { RotatingLines } from 'react-loader-spinner';
-import css from './Loader.module.css';
+
+import { Wrapper } from './Loader.styled';
 
 export default function Loader() {
   return (
-    <div className={css.loader}>
+    <Wrapper className="loader">
       <RotatingLines
         strokeColor="grey"
         strokeWidth="4"
@@ -12,6 +13,6 @@ export default function Loader() {
         width="96"
         visible={true}
       />
-    </div>
+    </Wrapper>
   );
 }

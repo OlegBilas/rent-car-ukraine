@@ -36,19 +36,19 @@ export const ReviewContainer = styled.div`
   background-color: #ffffff;
 `;
 
-export const AvatarWrapper = styled.div`
+export const ImgWrapper = styled.div`
   width: 100%;
   height: 100%;
 
   overflow: hidden;
 `;
 
-export const AvatarImg = styled.img`
+export const Image = styled.img`
   object-fit: cover;
   object-position: 50% 50%;
   background-repeat: no-repeat;
 `;
-export const UserInfo = styled.div`
+export const CarInfo = styled.div`
   margin-left: 8px;
 `;
 

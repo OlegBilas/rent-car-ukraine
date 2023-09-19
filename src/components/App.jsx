@@ -15,9 +15,6 @@ import { HomePage } from 'pages/HomePage/HomePage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-// const HomePage = lazy(() => import('pages/HomePage/HomePage'));
-// const CatalogPage = lazy(() => import('pages/CatalogPage/CatalogPage'));
-
 export function App() {
   const dispatch = useDispatch();
   useEffect(() => {

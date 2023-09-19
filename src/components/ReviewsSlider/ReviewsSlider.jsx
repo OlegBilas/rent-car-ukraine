@@ -11,12 +11,12 @@ import 'swiper/css/navigation';
 import {
   Container,
   Title,
-  AvatarWrapper,
-  AvatarImg,
   Name,
   SliderCard,
-  UserInfo,
   ReviewContainer,
+  CarInfo,
+  ImgWrapper,
+  Image,
 } from './ReviewsSlider.styled';
 
 import { useSelector } from 'react-redux';
@@ -55,17 +55,17 @@ const ReviewsSlider = () => {
             <SwiperSlide key={car.id}>
               <SliderCard>
                 <ReviewContainer>
-                  <AvatarWrapper>
-                    <AvatarImg
+                  <ImgWrapper>
+                    <Image
                       src={car.img}
                       alt={`${car.make} ${car.model}, ${car.year}`}
                       width="100%"
                       height="86%"
                     />
-                    <UserInfo>
+                    <CarInfo>
                       <Name>{`${car.make} ${car.model}, ${car.year}`}</Name>
-                    </UserInfo>
-                  </AvatarWrapper>
+                    </CarInfo>
+                  </ImgWrapper>
                 </ReviewContainer>
               </SliderCard>
             </SwiperSlide>

@@ -6,7 +6,7 @@ import { ReactComponent as CloseStyled } from 'images/CarModal/x.svg';
 export const Container = styled.div`
   position: relative;
   width: 541px;
-  /* height: 752px; */
+
   padding: 40px;
   border-radius: 24px;
   background: #fff;
@@ -15,7 +15,7 @@ export const Container = styled.div`
 export const Img = styled.img`
   margin-bottom: 14px;
   border-radius: 14px;
-  /* background: #f3f3f2; */
+
   overflow: hidden;
 `;
 

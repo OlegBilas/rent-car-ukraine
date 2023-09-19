@@ -17,7 +17,6 @@ import { useSelector } from 'react-redux';
 import { selectCars, selectMakes } from 'redux/cars/selectors';
 import { getPriceRanges } from 'utils';
 import * as Yup from 'yup';
-// import { useLocation } from 'react-router-dom';
 
 const initialValues = {
   make: '',
@@ -31,13 +30,7 @@ export const SideBar = ({ setQuery }) => {
   const cars = useSelector(selectCars);
   const [prices, setPrices] = useState([]);
 
-  // const location = useLocation();
-
-  // useEffect(() => {
-  //   const form = document.body.querySelector('form');
-
-  //   form.reset();
-  // }, [location.pathname]);
+  
 
   useEffect(() => {
     setPrices(getPriceRanges(cars)); // array of numbers
