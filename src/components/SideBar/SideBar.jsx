@@ -8,6 +8,9 @@ import {
   FieldFrom,
   FieldTo,
   Label,
+  Div,
+  TextTo,
+  TextFrom,
 } from './SideBar.styled';
 
 import { useSelector } from 'react-redux';
@@ -98,7 +101,8 @@ export const SideBar = ({ setQuery }) => {
 
             <Label>
               Сar mileage/km
-              <div>
+              <Div>
+                <TextFrom>From </TextFrom>
                 <FieldFrom
                   value={values.mileageFrom}
                   onValueChange={val =>
@@ -106,14 +110,16 @@ export const SideBar = ({ setQuery }) => {
                   }
                 />
                 <ErrorMessage name="mileageFrom" />
+                <TextTo>To </TextTo>
                 <FieldTo
                   value={values.mileageTo}
                   onValueChange={val =>
                     setFieldValue('mileageTo', val.floatValue)
                   }
                 />
+
                 <ErrorMessage name="mileageTo" />
-              </div>
+              </Div>
             </Label>
 
             <SearchBtn type="submit">Search</SearchBtn>
@@ -123,7 +129,3 @@ export const SideBar = ({ setQuery }) => {
     </Formik>
   );
 };
-
-// SideBar.propTypes = {
-//   setQuery: PropTypes.func.isRequired,
-// };

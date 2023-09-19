@@ -63,22 +63,49 @@ export const MyNumberInputStyled = styled(MyNumberInput)`
   font-weight: 500;
   line-height: 1.11111;
   outline: none;
+  box-sizing: border-box;
+`;
+
+export const Div = styled.div`
+  position: relative;
 `;
 
 export const FieldFrom = styled(MyNumberInputStyled)`
-  position: relative;
   width: 160px;
   border-top-left-radius: 14px;
   border-bottom-left-radius: 14px;
   border-right: 1px solid rgba(138, 138, 137, 0.2);
+  padding-left: 70px;
+`;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    width: 10px;
-  }
+export const TextFrom = styled.span`
+  position: absolute;
+  top: 14px;
+  left: 24px;
+  z-index: 1;
+
+  background: #f7f7fb;
+  border: none;
+  color: #121417;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.11111;
+`;
+
+export const TextTo = styled.span`
+  position: absolute;
+  top: 14px;
+  left: 184px;
+  z-index: 1;
+
+  background: #f7f7fb;
+  border: none;
+  color: #121417;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.11111;
 `;
 
 export const FieldTo = styled(MyNumberInputStyled)`
@@ -86,14 +113,7 @@ export const FieldTo = styled(MyNumberInputStyled)`
   width: 160px;
   border-top-right-radius: 14px;
   border-bottom-right-radius: 14px;
-
-  &::before {
-    content: 'From ';
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    width: 10px;
-  }
+  padding-left: 48px;
 `;
 
 export const SearchBtn = styled.button`
