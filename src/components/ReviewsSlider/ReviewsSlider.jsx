@@ -8,9 +8,6 @@ import 'swiper/css';
 import 'swiper/css/virtual';
 import 'swiper/css/navigation';
 
-import { ReactComponent as LeftArrow } from '../../images/HomePage/arrowLeft.svg';
-import { ReactComponent as RightArrow } from '../../images/HomePage/arrowRight.svg';
-
 import {
   Container,
   Title,
@@ -18,9 +15,6 @@ import {
   AvatarImg,
   Name,
   SliderCard,
-  ReviewText,
-  SwiperNavBox,
-  SwiperNavBtn,
   UserInfo,
   ReviewContainer,
 } from './ReviewsSlider.styled';
