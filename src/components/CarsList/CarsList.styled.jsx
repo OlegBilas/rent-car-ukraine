@@ -3,7 +3,7 @@ import { ReactComponent as LikeStyled } from 'images/CarsList/like.svg';
 
 export const List = styled.ul`
   display: grid;
-  grid-template-columns: repeat(4, 274px);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
   grid-row-gap: 50px;
   grid-column-gap: 28px;
@@ -12,7 +12,7 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
-  width: 274px;
+  /* width: 274px; */
   position: relative;
   color: rgba(18, 20, 23, 0.5);
   font-size: 12px;
