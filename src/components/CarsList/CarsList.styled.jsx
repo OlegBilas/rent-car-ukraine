@@ -3,11 +3,11 @@ import { ReactComponent as LikeStyled } from 'images/CarsList/like.svg';
 
 export const List = styled.ul`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  /* grid-template-rows: repeat(274px, 426px); */
+  grid-template-columns: repeat(4, 274px);
   grid-template-rows: auto;
   grid-row-gap: 50px;
   grid-column-gap: 28px;
+
   margin-bottom: 100px;
 `;
 
