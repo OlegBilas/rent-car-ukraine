@@ -14,6 +14,7 @@ import {
   Title,
 } from './CarModal.styled';
 import { getFirstLineModal, getSecondLineModal } from 'utils';
+import { NumericFormat } from 'react-number-format';
 
 export const CarModal = ({ car, toggleModal }) => {
   const getOtherRequirements = ({ rentalConditions, mileage, rentalPrice }) => {
@@ -21,14 +22,29 @@ export const CarModal = ({ car, toggleModal }) => {
     const age = array[0].slice(-2);
 
     array = array.slice(1);
-    const price = `${rentalPrice.replace('$', '')}$`;
+
+    const price = rentalPrice.replace('$', '');
+
     return [
-      `Minimum age: <span>${age}</span>`,
+      age,
       ...array,
-      `Mileage: <span>${mileage}</span>`,
-      `Price: <span>${price}</span>`,
+      <NumericFormat
+        valueIsNumericString={true}
+        thousandSeparator={true}
+        displayType="text"
+        value={mileage}
+      />,
+      <NumericFormat
+        valueIsNumericString={true}
+        thousandSeparator={true}
+        displayType="text"
+        suffix={'$'}
+        value={price}
+      />,
     ];
   };
+
+  const otherRequirements = getOtherRequirements(car);
 
   return (
     <Container>
@@ -55,9 +71,13 @@ export const CarModal = ({ car, toggleModal }) => {
         Rental Conditions:
       </Title>
       <ListRequirements>
-        {getOtherRequirements(car).map((item, index) => (
-          <li key={index}>{`${item}`}</li>
-        ))}
+        <li>
+          Minimum age: <span>{otherRequirements[0]}</span>
+        </li>
+        <li>{otherRequirements[1]}</li>
+        <li>{otherRequirements[2]}</li>
+        <li>Mileage: {otherRequirements[3]}</li>
+        <li>Price: {otherRequirements[4]}</li>
       </ListRequirements>
       <PhoneUs href="tel:+380730000000">Rental car</PhoneUs>
     </Container>

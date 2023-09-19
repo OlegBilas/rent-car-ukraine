@@ -85,7 +85,6 @@ export const ListRequirements = styled.ul`
     background-color: #f9f9f9;
 
     color: #363535;
-
     font-size: 12px;
     font-weight: 400;
     line-height: 1.5;
@@ -100,10 +99,17 @@ export const ListRequirements = styled.ul`
 export const PhoneUs = styled.a`
   padding: 12px 50px;
   border-radius: 12px;
-  background: #3470ff;
+  background-color: #3470ff;
 
   color: #fff;
   font-size: 14px;
   font-weight: 600;
   line-height: 1.42857;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    background-color: #0b44cd;
+  }
 `;

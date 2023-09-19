@@ -1,7 +1,7 @@
 @import-normalize; /* bring in normalize.css styles */
 
 @font-face {
-  font-family: 'Montserrat';
+  font-family: Montserrat;
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -11,7 +11,7 @@
 }
 
 @font-face {
-  font-family: 'Manrope';
+  font-family: Manrope;
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -21,7 +21,7 @@
 }
 
 @font-face {
-  font-family: 'Manrope';
+  font-family: Manrope;
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -31,7 +31,7 @@
 }
 
 @font-face {
-  font-family: 'Manrope';
+  font-family: Manrope;
   font-style: normal;
   font-weight: 600;
   font-display: swap;
@@ -46,7 +46,7 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Manrope', 'Montserrat', sans-serif;
+  font-family: Manrope, Montserrat, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 12px;
