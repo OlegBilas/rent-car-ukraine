@@ -12,7 +12,6 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
-  /* width: 274px; */
   position: relative;
   color: rgba(18, 20, 23, 0.5);
   font-size: 12px;
