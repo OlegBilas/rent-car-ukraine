@@ -1,63 +1,58 @@
-import React from 'react';
-
-import back from 'images/HomePage/parking-825371_1280.jpg';
+import React, { useEffect, useState } from 'react';
 
 import {
   Info,
-  InfoWrapper,
   ListItem,
   StyledLabel,
   StyledNumber,
-  StyledText,
+  Title,
   TitleWrapper,
 } from './Description.styled';
 
 const Description = () => {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    setLoaded(true);
+  }, []);
+
   return (
-    <ul>
-      <ListItem>
-        <InfoWrapper>
+    <>
+      <Title>Get your car now!</Title>
+      <ul>
+        <ListItem className={loaded && 'loaded'}>
           <TitleWrapper>
             <StyledNumber>1.</StyledNumber>
-            <StyledLabel>Calendar</StyledLabel>
-            <StyledText>View</StyledText>
+            <StyledLabel>Dream Car</StyledLabel>
           </TitleWrapper>
           <Info>
-            GooseTrack's Calendar view provides a comprehensive overview of your
-            schedule, displaying all your tasks, events, and appointments in a
-            visually appealing and intuitive layout.
+            Get your car now. With us, everyone will be able to choose a car
+            that suits their taste and wallet
           </Info>
-        </InfoWrapper>
-      </ListItem>
-      <ListItem>
-        <InfoWrapper>
+        </ListItem>
+        <ListItem className={loaded && 'loaded'}>
           <TitleWrapper>
             <StyledNumber>2.</StyledNumber>
-            <StyledText>Sidebar</StyledText>
+            <StyledLabel>Processing Speed</StyledLabel>
           </TitleWrapper>
           <Info>
-            GooseTrack offers easy access to your account settings, calendar,
-            and filters. The "My Account" section allows you to manage your
-            profile information and preferences, while the calendar provides a
-            quick and convenient way to view your upcoming events and tasks.
+            We have no bureaucracy. Formalities take a minimum of time and all
+            so that after 30 minutes you can enjoy a trip in a comfortable car
           </Info>
-        </InfoWrapper>
-      </ListItem>
-      <ListItem>
-        <InfoWrapper>
+        </ListItem>
+        <ListItem className={loaded && 'loaded'}>
           <TitleWrapper>
             <StyledNumber>3.</StyledNumber>
-            <StyledLabel>All in</StyledLabel>
-            <StyledText>One</StyledText>
+            <StyledLabel>Safety</StyledLabel>
           </TitleWrapper>
           <Info>
-            GooseTrack is an all-in-one productivity tool that helps you stay on
-            top of your tasks, events, and deadlines. Say goodbye to scattered
-            to-do lists and hello to streamlined productivity with GooseTrack.
+            For your safety, our cars undergo regular technical inspection.
+            Plus, all cars are insured. All this cases are for aid of nothing
+            upsets you during the trip!
           </Info>
-        </InfoWrapper>
-      </ListItem>
-    </ul>
+        </ListItem>
+      </ul>
+    </>
   );
 };
 

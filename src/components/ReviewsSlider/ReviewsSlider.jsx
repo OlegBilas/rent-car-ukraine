@@ -65,26 +65,19 @@ const ReviewsSlider = () => {
                     <AvatarImg
                       src={car.img}
                       alt={`${car.make} ${car.model}, ${car.year}`}
+                      width="100%"
+                      height="86%"
                     />
+                    <UserInfo>
+                      <Name>{`${car.make} ${car.model}, ${car.year}`}</Name>
+                    </UserInfo>
                   </AvatarWrapper>
-                  <UserInfo>
-                    <Name>{`${car.make} ${car.model}, ${car.year}`}</Name>
-                  </UserInfo>
                 </ReviewContainer>
-                <ReviewText>{car.comment}</ReviewText>
               </SliderCard>
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
-      <SwiperNavBox>
-        <SwiperNavBtn id="prev-button">
-          <LeftArrow />
-        </SwiperNavBtn>
-        <SwiperNavBtn id="next-button">
-          <RightArrow />
-        </SwiperNavBtn>
-      </SwiperNavBox>
     </Container>
   );
 };

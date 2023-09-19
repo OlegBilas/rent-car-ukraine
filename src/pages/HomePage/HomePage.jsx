@@ -4,9 +4,9 @@ import { Section } from './HomePage.styled';
 
 export const HomePage = () => {
   return (
-    <section>
+    <Section>
       <Description />
       <ReviewsSlider />
-    </section>
+    </Section>
   );
 };
