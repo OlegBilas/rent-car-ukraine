@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Formik, Form, ErrorMessage } from 'formik';
+import { Formik, ErrorMessage } from 'formik';
+import { Form, Field, SearchBtn } from './SideBar.styled';
 
 import { useSelector } from 'react-redux';
 import { selectCars, selectMakes } from 'redux/cars/selectors';
 import { getPriceRanges } from 'utils';
 import { NumericFormat } from 'react-number-format';
 import * as Yup from 'yup';
-import { Field } from './SideBar.styled';
 
 // function NumberField({ field }) {
 //   return (
@@ -64,7 +64,7 @@ export const SideBar = ({ setQuery }) => {
   return (
     <Formik
       initialValues={initialValues}
-      enableReinitialize
+      // enableReinitialize
       // validationSchema={validateSchema}
       validationSchema={Yup.object().shape({
         make: Yup.string(),
@@ -112,7 +112,7 @@ export const SideBar = ({ setQuery }) => {
               <ErrorMessage name="mileageTo" />
             </label>
 
-            <button type="submit">Search</button>
+            <SearchBtn type="submit">Search</SearchBtn>
           </Form>
         );
       }}

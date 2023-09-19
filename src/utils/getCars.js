@@ -5,7 +5,7 @@ export const getCars = (cars, query, page, PER_PAGE = 8) => {
   const { make, rentalPrice, mileageFrom, mileageTo } = query;
   result = [...cars];
 
-  // debugger;
+  debugger;
 
   if (make) {
     result = result.filter(car => car.make === make);

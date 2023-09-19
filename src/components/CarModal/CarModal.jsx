@@ -23,13 +23,10 @@ export const CarModal = ({ car, toggleModal }) => {
 
     array = array.slice(1);
 
-    const price = rentalPrice.replace('$', '');
-
     return [
       age,
       ...array,
       <NumericFormat
-        valueIsNumericString={true}
         thousandSeparator={true}
         displayType="text"
         value={mileage}
@@ -39,7 +36,7 @@ export const CarModal = ({ car, toggleModal }) => {
         thousandSeparator={true}
         displayType="text"
         suffix={'$'}
-        value={price}
+        value={rentalPrice}
       />,
     ];
   };
