@@ -1,25 +1,6 @@
 import React from 'react';
 
-// import m1 from '../../images/mainPage/phohe/phone_calendar.png';
-// import m1Retina from '../../images/mainPage/phohe/phone_calendar@2x.png';
-// import t1 from '../../images/mainPage/tablet/tablet_calendar.png';
-// import t1Retina from '../../images/mainPage/tablet/tablet_calendar@2x.png';
-// import d1 from '../../images/mainPage/desktop/desktop_calendar.png';
-// import d1Retina from '../../images/mainPage/desktop/desktop_calendar@2x.png';
-
-// import m2 from '../../images/mainPage/phohe/phone_sidebar.png';
-// import m2Retina from '../../images/mainPage/phohe/phone_sidebar@2x.png';
-// import t2 from '../../images/mainPage/tablet/tablet_sidebar.png';
-// import t2Retina from '../../images/mainPage/tablet/tablet_sidebar@2x.png';
-// import d2 from '../../images/mainPage/desktop/desktop_sidebar.png';
-// import d2Retina from '../../images/mainPage/desktop/desktop_sidebar@2x.png';
-
-// import m3 from '../../images/mainPage/phohe/phone_all.png';
-// import m3Retina from '../../images/mainPage/phohe/phone_all@2x.png';
-// import t3 from '../../images/mainPage/tablet/tablet_all.png';
-// import t3Retina from '../../images/mainPage/tablet/tablet_all@2x.png';
-// import d3 from '../../images/mainPage/desktop/desktop_all.png';
-// import d3Retina from '../../images/mainPage/desktop/desktop_all@2x.png';
+import back from 'images/HomePage/parking-825371_1280.jpg';
 
 import {
   Info,
