@@ -62,6 +62,7 @@ export const MyNumberInputStyled = styled(MyNumberInput)`
   font-style: normal;
   font-weight: 500;
   line-height: 1.11111;
+  outline: none;
 `;
 
 export const FieldFrom = styled(MyNumberInputStyled)`

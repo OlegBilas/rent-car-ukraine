@@ -27,6 +27,6 @@ export const getCars = (cars, query, page, PER_PAGE = 8) => {
   }
 
   const index = page * PER_PAGE - PER_PAGE;
-  console.log(result);
+
   return result.slice(index, index + PER_PAGE);
 };

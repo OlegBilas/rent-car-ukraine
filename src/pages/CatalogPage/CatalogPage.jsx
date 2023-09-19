@@ -21,11 +21,25 @@ export const CatalogPage = ({ allCars, favorite }) => {
   const ref = useRef();
 
   useEffect(() => {
+    setQuery({});
+    setPage(1);
+    setCars([]);
+    ref.current = false;
+  }, [favorite]);
+
+  useEffect(() => {
+    setPage(1);
+    setCars([]);
+    ref.current = false;
+  }, [query]);
+
+  useEffect(() => {
     const carsFiltered = getCars(allCars, query, page);
 
     if (carsFiltered.length === 0 && page === 1) {
       // відсутні дані
       toast.error("We didn't find any adverts on your request!");
+      ref.current = true;
     }
 
     if (carsFiltered.length === 0 && page > 1) {

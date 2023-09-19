@@ -14,17 +14,7 @@ import { useSelector } from 'react-redux';
 import { selectCars, selectMakes } from 'redux/cars/selectors';
 import { getPriceRanges } from 'utils';
 import * as Yup from 'yup';
-
-// function NumberField({ field }) {
-//   return (
-//     <NumericFormat
-//       {...field}
-//       decimalScale={0}
-//       suffix={'$'}
-//       allowNegative={false}
-//     />
-//   );
-// }
+// import { useLocation } from 'react-router-dom';
 
 const initialValues = {
   make: '',
@@ -38,6 +28,14 @@ export const SideBar = ({ setQuery }) => {
   const cars = useSelector(selectCars);
   const [prices, setPrices] = useState([]);
 
+  // const location = useLocation();
+
+  // useEffect(() => {
+  //   const form = document.body.querySelector('form');
+
+  //   form.reset();
+  // }, [location.pathname]);
+
   useEffect(() => {
     setPrices(getPriceRanges(cars)); // array of numbers
   }, [cars]);
@@ -48,6 +46,7 @@ export const SideBar = ({ setQuery }) => {
         {item}
       </option>
     ));
+
   return (
     <Formik
       initialValues={initialValues}
@@ -59,7 +58,6 @@ export const SideBar = ({ setQuery }) => {
       })}
       onSubmit={values => {
         setQuery(values);
-        console.log(values);
       }}
     >
       {props => {
