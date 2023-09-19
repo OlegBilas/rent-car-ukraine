@@ -37,13 +37,13 @@ export const ListItem = styled.li`
 
 export const TitleWrapper = styled.h2`
   display: flex;
-  align-items: baseline;
+  align-items: center;
   margin-bottom: 24px;
 `;
 export const StyledNumber = styled.span`
   font-weight: 600;
   font-size: 104px;
-  /* line-height: 1; */
+
   color: #3e85f3;
 `;
 export const StyledLabel = styled.span`
