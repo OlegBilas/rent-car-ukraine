@@ -19,16 +19,10 @@ export const getCars = (cars, query, page, PER_PAGE = 8) => {
   }
 
   if (mileageFrom) {
-    // const mileageFromForm = Number.parseInt(
-    //   mileageFrom.replaceAll('$', '').replaceAll(',', '')
-    // );
     result = result.filter(car => car.mileage >= mileageFrom);
   }
 
   if (mileageTo) {
-    // const mileageFromForm = Number.parseInt(
-    //   mileageTo.replaceAll('$', '').replaceAll(',', '')
-    // );
     result = result.filter(car => car.mileage <= mileageTo);
   }
 

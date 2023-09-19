@@ -1,29 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { Formik, ErrorMessage } from 'formik';
-import { Form, Field, SearchBtn } from './SideBar.styled';
+import {
+  Form,
+  SearchBtn,
+  FieldMake,
+  FieldPrice,
+  FieldFrom,
+  FieldTo,
+  Label,
+} from './SideBar.styled';
 
 import { useSelector } from 'react-redux';
 import { selectCars, selectMakes } from 'redux/cars/selectors';
 import { getPriceRanges } from 'utils';
-import { NumericFormat } from 'react-number-format';
 import * as Yup from 'yup';
 
-const MyNumberInput = props => {
-  const [value, setValue] = useState('');
-
-  return (
-    <NumericFormat
-      valueIsNumericString={true}
-      thousandSeparator={true}
-      decimalScale={0}
-      allowNegative={false}
-      prefix={props.prefix}
-      value={value}
-      onValueChange={vals => setValue(vals.formattedValue)}
-      {...props}
-    />
-  );
-};
+// function NumberField({ field }) {
+//   return (
+//     <NumericFormat
+//       {...field}
+//       decimalScale={0}
+//       suffix={'$'}
+//       allowNegative={false}
+//     />
+//   );
+// }
 
 const initialValues = {
   make: '',
@@ -65,9 +66,9 @@ export const SideBar = ({ setQuery }) => {
         const { values, setFieldValue } = props;
         return (
           <Form>
-            <label>
+            <Label>
               Car brand
-              <Field
+              <FieldMake
                 name="make"
                 type="text"
                 as="select"
@@ -75,15 +76,15 @@ export const SideBar = ({ setQuery }) => {
                   setFieldValue('make', val.target.value);
                 }}
               >
-                <option value=""></option>
+                <option value="">Enter the text</option>
                 {getOptions(makes)}
-              </Field>
+              </FieldMake>
               <ErrorMessage name="make" />
-            </label>
+            </Label>
 
-            <label>
+            <Label>
               Price/1 hour
-              <Field
+              <FieldPrice
                 name="rentalPrice"
                 type="number"
                 as="select"
@@ -91,29 +92,31 @@ export const SideBar = ({ setQuery }) => {
                   setFieldValue('rentalPrice', val.target.value);
                 }}
               >
-                <option value=""></option>
+                <option value="">To $</option>
                 {getOptions(prices)}
-              </Field>
+              </FieldPrice>
               <ErrorMessage name="rentalPrice" />
-            </label>
+            </Label>
 
-            <label>
+            <Label>
               Сar mileage/km
-              <MyNumberInput
-                value={values.mileageFrom}
-                onValueChange={val =>
-                  setFieldValue('mileageFrom', val.floatValue)
-                }
-              />
-              <ErrorMessage name="mileageFrom" />
-              <MyNumberInput
-                value={values.mileageTo}
-                onValueChange={val =>
-                  setFieldValue('mileageTo', val.floatValue)
-                }
-              />
-              <ErrorMessage name="mileageTo" />
-            </label>
+              <div>
+                <FieldFrom
+                  value={values.mileageFrom}
+                  onValueChange={val =>
+                    setFieldValue('mileageFrom', val.floatValue)
+                  }
+                />
+                <ErrorMessage name="mileageFrom" />
+                <FieldTo
+                  value={values.mileageTo}
+                  onValueChange={val =>
+                    setFieldValue('mileageTo', val.floatValue)
+                  }
+                />
+                <ErrorMessage name="mileageTo" />
+              </div>
+            </Label>
 
             <SearchBtn type="submit">Search</SearchBtn>
           </Form>
