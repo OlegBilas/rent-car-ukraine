@@ -13,6 +13,10 @@ export const Title = styled.h2`
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 export const Model = styled.span`

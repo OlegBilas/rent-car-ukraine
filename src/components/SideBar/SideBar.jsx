@@ -8,19 +8,6 @@ import { getPriceRanges } from 'utils';
 import { NumericFormat } from 'react-number-format';
 import * as Yup from 'yup';
 
-// function NumberField({ field }) {
-//   return (
-//     <NumericFormat
-//       {...field}
-//       decimalScale={0}
-//       prefix={'$'}
-//       valueIsNumericString={true}
-//       thousandSeparator={true}
-//       allowNegative={false}
-//     />
-//   );
-// }
-
 const MyNumberInput = props => {
   const [value, setValue] = useState('');
 
@@ -60,19 +47,19 @@ export const SideBar = ({ setQuery }) => {
         {item}
       </option>
     ));
-
   return (
     <Formik
       initialValues={initialValues}
-      // enableReinitialize
-      // validationSchema={validateSchema}
       validationSchema={Yup.object().shape({
-        make: Yup.string(),
-        rentalPrice: Yup.number(),
+        make: Yup.string().oneOf(makes, 'Invalid make of car'),
+        rentalPrice: Yup.number().oneOf(prices, 'Invalid value of price'),
         mileageFrom: Yup.number(),
         mileageTo: Yup.number(),
       })}
-      onSubmit={values => setQuery(values)}
+      onSubmit={values => {
+        setQuery(values);
+        console.log(values);
+      }}
     >
       {props => {
         const { values, setFieldValue } = props;
@@ -80,7 +67,15 @@ export const SideBar = ({ setQuery }) => {
           <Form>
             <label>
               Car brand
-              <Field name="make" type="text" as="select">
+              <Field
+                name="make"
+                type="text"
+                as="select"
+                onChange={val => {
+                  setFieldValue('make', val.target.value);
+                }}
+              >
+                <option value=""></option>
                 {getOptions(makes)}
               </Field>
               <ErrorMessage name="make" />
@@ -88,7 +83,15 @@ export const SideBar = ({ setQuery }) => {
 
             <label>
               Price/1 hour
-              <Field name="rentalPrice" type="number" as="select">
+              <Field
+                name="rentalPrice"
+                type="number"
+                as="select"
+                onChange={val => {
+                  setFieldValue('rentalPrice', val.target.value);
+                }}
+              >
+                <option value=""></option>
                 {getOptions(prices)}
               </Field>
               <ErrorMessage name="rentalPrice" />
