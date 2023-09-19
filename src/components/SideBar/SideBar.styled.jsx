@@ -33,6 +33,7 @@ export const FieldStyled = styled(Field)`
   font-style: normal;
   font-weight: 500;
   line-height: 1.11111;
+  outline: none;
 
   & > option {
     color: rgba(18, 20, 23, 0.2);
