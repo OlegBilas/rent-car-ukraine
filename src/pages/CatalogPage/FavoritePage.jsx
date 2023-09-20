@@ -7,7 +7,7 @@ import { SideBar } from 'components/SideBar/SideBar';
 
 import { getCars } from 'utils';
 import { LoadMoreBtn } from './CatalogPage.styled';
-import { HelmetProvider, Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet-async';
 
 export const FavoritePage = ({ allCars }) => {
   const [query, setQuery] = useState({});
@@ -51,19 +51,17 @@ export const FavoritePage = ({ allCars }) => {
   }, [page, allCars, query]);
 
   return (
-    
-      <section>
-        <Helmet>
-          <title>Your cars</title>
-        </Helmet>
-        <SideBar setQuery={setQuery} />
-        <CarsList cars={cars} />
-        {!ref.current && (
-          <LoadMoreBtn type="buttton" onClick={handleClickLoadMore}>
-            Load more
-          </LoadMoreBtn>
-        )}
-      </section>
-    
+    <section>
+      <Helmet>
+        <title>Your cars</title>
+      </Helmet>
+      <SideBar setQuery={setQuery} />
+      <CarsList cars={cars} />
+      {!ref.current && (
+        <LoadMoreBtn type="buttton" onClick={handleClickLoadMore}>
+          Load more
+        </LoadMoreBtn>
+      )}
+    </section>
   );
 };

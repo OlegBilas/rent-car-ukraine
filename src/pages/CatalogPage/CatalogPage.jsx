@@ -7,7 +7,7 @@ import { SideBar } from 'components/SideBar/SideBar';
 
 import { getCars } from 'utils';
 import { LoadMoreBtn } from './CatalogPage.styled';
-import { HelmetProvider, Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet-async';
 
 export const CatalogPage = ({ allCars }) => {
   const [query, setQuery] = useState({});
