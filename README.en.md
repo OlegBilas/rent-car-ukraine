@@ -42,8 +42,8 @@ about the car and its rental conditions
 
 ### Add to favorites
 
-Click on the icon `heart` will add the selected car to the favorites catalog
-cars on the page `Favorites`.
+Click on the icon `heart` will add the car to the favorites catalog cars on the
+page `Favorites`.
 
 ![Adding to favorites](./assets/add-to-favorites.jpeg)
 
