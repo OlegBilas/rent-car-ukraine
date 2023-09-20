@@ -9,7 +9,7 @@ import { getCars } from 'utils';
 import { LoadMoreBtn } from './CatalogPage.styled';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 
-export const CatalogPage = ({ allCars }) => {
+export const FavoritePage = ({ allCars }) => {
   const [query, setQuery] = useState({});
   const [page, setPage] = useState(1);
   const [cars, setCars] = useState([]);
@@ -54,7 +54,7 @@ export const CatalogPage = ({ allCars }) => {
     <HelmetProvider>
       <section>
         <Helmet>
-          <title>Our adverts</title>
+          <title>Your cars</title>
         </Helmet>
         <SideBar setQuery={setQuery} />
         <CarsList cars={cars} />
