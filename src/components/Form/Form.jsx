@@ -34,10 +34,17 @@ export const FormSearch = ({ setQuery }) => {
     setPrices(getPriceRanges(cars)); // array of numbers
   }, [cars]);
 
-  const getOptions = items =>
+  const getMakeOptions = items =>
     items.map(item => (
       <option key={item} value={item}>
         {item}
+      </option>
+    ));
+
+  const getPriceOptions = items =>
+    items.map(item => (
+      <option key={item} value={item}>
+        {`${item}$`}
       </option>
     ));
 
@@ -69,13 +76,13 @@ export const FormSearch = ({ setQuery }) => {
                 }}
               >
                 <option value="">Enter the text</option>
-                {getOptions(makes)}
+                {getMakeOptions(makes)}
               </FieldMake>
               <ErrorMessage name="make" />
             </Label>
 
             <Label>
-              Price/1 hour, $
+              Price/1 hour
               <FieldPrice
                 name="rentalPrice"
                 type="number"
@@ -85,7 +92,7 @@ export const FormSearch = ({ setQuery }) => {
                 }}
               >
                 <option value="">To $</option>
-                {getOptions(prices)}
+                {getPriceOptions(prices)}
               </FieldPrice>
               <ErrorMessage name="rentalPrice" />
             </Label>
