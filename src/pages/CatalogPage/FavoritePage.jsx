@@ -29,15 +29,15 @@ export const FavoritePage = ({ allCars }) => {
   useEffect(() => {
     const carsFiltered = getCars(allCars, query, page);
 
-    if (carsFiltered.length === 0 && page === 1) {
+    if (allCars.length > 0 && carsFiltered.length === 0 && page === 1) {
       // відсутні дані
-      toast.error("We didn't find any adverts on your request!");
+      toast.error("We didn't find any info on your request!");
       ref.current = true;
     }
 
-    if (carsFiltered.length === 0 && page > 1) {
+    if (allCars.length > 0 && carsFiltered.length === 0 && page > 1) {
       // кінець колекції
-      toast.warn("It's the end of the adverts' collection!");
+      toast.warn("It's the end of the collection!");
       ref.current = true;
     }
 
