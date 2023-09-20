@@ -83,7 +83,6 @@ export const TextFrom = styled.span`
   position: absolute;
   top: 14px;
   left: 24px;
-  z-index: 1;
 
   background: #f7f7fb;
   border: none;
@@ -98,7 +97,6 @@ export const TextTo = styled.span`
   position: absolute;
   top: 14px;
   left: 184px;
-  z-index: 1;
 
   background: #f7f7fb;
   border: none;

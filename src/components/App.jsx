@@ -41,8 +41,8 @@ export function App() {
             path="favorites"
             element={<FavoritePage allCars={favoriteCars} />}
           />
+          <Route path="*" element={<Navigate to={'/'} />} />
         </Route>
-        <Route path="*" element={<Navigate to={'/'} />} />
       </Routes>
       <ToastContainer />
     </>
