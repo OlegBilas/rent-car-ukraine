@@ -14,7 +14,7 @@ export const Nav = styled.nav`
 `;
 
 export const NavLink = styled(NavLinkForStyle)`
-  color: #0b44cd;
+  color: #3e85f3;
   font-size: 24px;
   font-weight: 600;
   line-height: 1.5;
