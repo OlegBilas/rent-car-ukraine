@@ -51,19 +51,17 @@ export const CatalogPage = ({ allCars }) => {
   }, [page, allCars, query]);
 
   return (
-    <HelmetProvider>
-      <section>
-        <Helmet>
-          <title>Our adverts</title>
-        </Helmet>
-        <SideBar setQuery={setQuery} />
-        <CarsList cars={cars} />
-        {!ref.current && (
-          <LoadMoreBtn type="buttton" onClick={handleClickLoadMore}>
-            Load more
-          </LoadMoreBtn>
-        )}
-      </section>
-    </HelmetProvider>
+    <section>
+      <Helmet>
+        <title>Our adverts</title>
+      </Helmet>
+      <SideBar setQuery={setQuery} />
+      <CarsList cars={cars} />
+      {!ref.current && (
+        <LoadMoreBtn type="buttton" onClick={handleClickLoadMore}>
+          Load more
+        </LoadMoreBtn>
+      )}
+    </section>
   );
 };

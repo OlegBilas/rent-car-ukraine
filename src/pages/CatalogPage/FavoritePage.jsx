@@ -51,7 +51,7 @@ export const FavoritePage = ({ allCars }) => {
   }, [page, allCars, query]);
 
   return (
-    <HelmetProvider>
+    
       <section>
         <Helmet>
           <title>Your cars</title>
@@ -64,6 +64,6 @@ export const FavoritePage = ({ allCars }) => {
           </LoadMoreBtn>
         )}
       </section>
-    </HelmetProvider>
+    
   );
 };
