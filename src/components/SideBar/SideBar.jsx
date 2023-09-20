@@ -30,8 +30,6 @@ export const SideBar = ({ setQuery }) => {
   const cars = useSelector(selectCars);
   const [prices, setPrices] = useState([]);
 
-  
-
   useEffect(() => {
     setPrices(getPriceRanges(cars)); // array of numbers
   }, [cars]);
@@ -77,7 +75,7 @@ export const SideBar = ({ setQuery }) => {
             </Label>
 
             <Label>
-              Price/1 hour
+              Price/1 hour, $
               <FieldPrice
                 name="rentalPrice"
                 type="number"
