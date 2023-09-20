@@ -11,7 +11,7 @@ import {
   Div,
   TextTo,
   TextFrom,
-} from './SideBar.styled';
+} from './Form.styled';
 
 import { useSelector } from 'react-redux';
 import { selectCars, selectMakes } from 'redux/cars/selectors';
@@ -25,7 +25,7 @@ const initialValues = {
   mileageTo: '',
 };
 
-export const SideBar = ({ setQuery }) => {
+export const FormSearch = ({ setQuery }) => {
   const makes = useSelector(selectMakes);
   const cars = useSelector(selectCars);
   const [prices, setPrices] = useState([]);

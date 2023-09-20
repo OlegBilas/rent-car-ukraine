@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 
 import { CarsList } from 'components/CarsList/CarsList';
-import { SideBar } from 'components/SideBar/SideBar';
+import { FormSearch } from 'components/Form/Form';
 
 import { getCars } from 'utils';
 import { LoadMoreBtn } from './CatalogPage.styled';
@@ -55,7 +55,7 @@ export const FavoritePage = ({ allCars }) => {
       <Helmet>
         <title>Your cars</title>
       </Helmet>
-      <SideBar setQuery={setQuery} />
+      <FormSearch setQuery={setQuery} />
       <CarsList cars={cars} />
       {!ref.current && (
         <LoadMoreBtn type="buttton" onClick={handleClickLoadMore}>
