@@ -19,7 +19,6 @@ export const NavLink = styled(NavLinkForStyle)`
   font-weight: 600;
   line-height: 1.5;
   text-decoration-line: none;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &.active {
     color: rgba(11, 68, 205, 1);

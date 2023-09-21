@@ -85,6 +85,7 @@ export const ListRequirements = styled.ul`
     background-color: #f9f9f9;
 
     color: #363535;
+    font-family: Montserrat;
     font-size: 12px;
     font-weight: 400;
     line-height: 1.5;

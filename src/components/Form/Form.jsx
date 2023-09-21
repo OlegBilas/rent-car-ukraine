@@ -11,7 +11,10 @@ import {
   Div,
   TextTo,
   TextFrom,
+  OpenDiv,
 } from './Form.styled';
+import { ReactComponent as OpenedSvg } from 'images/Form/opened.svg';
+import { ReactComponent as ClosedSvg } from 'images/Form/closed.svg';
 
 import { useSelector } from 'react-redux';
 import { selectCars, selectMakes } from 'redux/cars/selectors';
@@ -29,21 +32,43 @@ export const FormSearch = ({ setQuery }) => {
   const makes = useSelector(selectMakes);
   const cars = useSelector(selectCars);
   const [prices, setPrices] = useState([]);
+  const [openedMake, setOpenedMake] = useState(false);
+  const [openedPrice, setOpenedPrice] = useState(false);
 
   useEffect(() => {
     setPrices(getPriceRanges(cars)); // array of numbers
   }, [cars]);
 
+  const toggleMakeMenu = () => {
+    setOpenedMake(prevState => !prevState);
+  };
+
+  const togglePriceMenu = () => {
+    setOpenedPrice(prevState => !prevState);
+  };
+
   const getMakeOptions = items =>
     items.map(item => (
-      <option key={item} value={item}>
+      <option
+        key={item}
+        value={item}
+        onClick={() => {
+          setOpenedMake(false);
+        }}
+      >
         {item}
       </option>
     ));
 
   const getPriceOptions = items =>
     items.map(item => (
-      <option key={item} value={item}>
+      <option
+        key={item}
+        value={item}
+        onClick={() => {
+          setOpenedPrice(false);
+        }}
+      >
         {`${item}$`}
       </option>
     ));
@@ -67,34 +92,56 @@ export const FormSearch = ({ setQuery }) => {
           <Form>
             <Label>
               Car brand
-              <FieldMake
-                name="make"
-                type="text"
-                as="select"
-                onChange={val => {
-                  setFieldValue('make', val.target.value);
-                }}
-              >
-                <option value="">Enter the text</option>
-                {getMakeOptions(makes)}
-              </FieldMake>
-              <ErrorMessage name="make" />
+              <Div>
+                <FieldMake
+                  name="make"
+                  type="text"
+                  as="select"
+                  onClick={toggleMakeMenu}
+                  onChange={val => {
+                    setFieldValue('make', val.target.value);
+                    setOpenedMake(true);
+                  }}
+                >
+                  <option value="">Enter the text</option>
+                  {getMakeOptions(makes)}
+                </FieldMake>
+                <OpenDiv>
+                  {openedMake ? (
+                    <OpenedSvg width={20} height={20} />
+                  ) : (
+                    <ClosedSvg width={20} height={20} />
+                  )}
+                </OpenDiv>
+                <ErrorMessage name="make" />
+              </Div>
             </Label>
 
             <Label>
               Price/1 hour
-              <FieldPrice
-                name="rentalPrice"
-                type="number"
-                as="select"
-                onChange={val => {
-                  setFieldValue('rentalPrice', val.target.value);
-                }}
-              >
-                <option value="">To $</option>
-                {getPriceOptions(prices)}
-              </FieldPrice>
-              <ErrorMessage name="rentalPrice" />
+              <Div>
+                <FieldPrice
+                  name="rentalPrice"
+                  type="number"
+                  as="select"
+                  onClick={togglePriceMenu}
+                  onChange={val => {
+                    setFieldValue('rentalPrice', val.target.value);
+                    setOpenedPrice(true);
+                  }}
+                >
+                  <option value="">To $</option>
+                  {getPriceOptions(prices)}
+                </FieldPrice>
+                <OpenDiv>
+                  {openedPrice ? (
+                    <OpenedSvg width={20} height={20} />
+                  ) : (
+                    <ClosedSvg width={20} height={20} />
+                  )}
+                </OpenDiv>
+                <ErrorMessage name="rentalPrice" />
+              </Div>
             </Label>
 
             <Label>

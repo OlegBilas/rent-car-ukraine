@@ -52,6 +52,27 @@ export const FieldPrice = styled(FieldStyled)`
   width: 125px;
 `;
 
+export const OpenDiv = styled.div`
+  position: absolute;
+  width: 34px;
+  height: 20px;
+  padding: 0px 14 px;
+  z-index: 20;
+
+  top: 14px;
+  right: 0px;
+  background-color: #f7f7fb;
+  border: none;
+
+  pointer-events: none;
+
+  &:focus,
+  &:hover {
+    background-color: #f7f7fb;
+    border: none;
+  }
+`;
+
 export const MyNumberInputStyled = styled(MyNumberInput)`
   padding: 14px 18px;
 
@@ -125,11 +146,4 @@ export const SearchBtn = styled.button`
   font-size: 14px;
   font-weight: 600;
   line-height: 1.42857;
-
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover,
-  &:focus {
-    background-color: #0b44cd;
-  }
 `;

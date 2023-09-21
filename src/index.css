@@ -5,9 +5,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(./fonts/Montserrat-Regular.ttf);
-  unicode-range: U+0100-02AF, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF,
-    U+2113, U+2C60-2C7F, U+A720-A7FF;
+  src: url(fonts/Montserrat-Regular.ttf) format('truetype');
 }
 
 @font-face {
@@ -15,9 +13,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(./fonts/Manrope-Regular.ttf);
-  unicode-range: U+0100-02AF, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF,
-    U+2113, U+2C60-2C7F, U+A720-A7FF;
+  src: url(fonts/Manrope-Regular.ttf) format('truetype');
 }
 
 @font-face {
@@ -25,9 +21,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(./fonts/Manrope-Medium.ttf);
-  unicode-range: U+0100-02AF, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF,
-    U+2113, U+2C60-2C7F, U+A720-A7FF;
+  src: url(fonts/Manrope-Medium.ttf) format('truetype');
 }
 
 @font-face {
@@ -35,9 +29,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(./fonts/Manrope-SemiBold.ttf);
-  unicode-range: U+0100-02AF, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF,
-    U+2113, U+2C60-2C7F, U+A720-A7FF;
+  src: url(fonts/Manrope-SemiBold.ttf) format('truetype');
 }
 
 html {
@@ -77,6 +69,7 @@ button {
   border-radius: 12px;
   background-color: #3470ff;
   border-color: currentColor;
+  font-family: Manrope;
   font-weight: 600;
   font-size: 14px;
   line-height: 1.42857;
@@ -116,5 +109,4 @@ ul {
 img {
   display: block;
   width: 100%;
- 
 }
