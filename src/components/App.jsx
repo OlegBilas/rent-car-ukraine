@@ -5,11 +5,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import {
-  selectCars,
-  selectFavoriteCars,
-  selectIsLoading,
-} from 'redux/cars/selectors';
+import { selectIsLoading } from 'redux/cars/selectors';
 
 import { Layout } from './Layout/Layout';
 import { fetchCars, fetchMakes } from 'redux/cars/operations';
@@ -27,9 +23,6 @@ export function App() {
 
   const isLoading = useSelector(selectIsLoading);
 
-  const allCars = useSelector(selectCars);
-  const favoriteCars = useSelector(selectFavoriteCars);
-
   return isLoading ? (
     <Loader />
   ) : (
@@ -37,11 +30,8 @@ export function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path="catalog" element={<CatalogPage allCars={allCars} />} />
-          <Route
-            path="favorites"
-            element={<FavoritePage allCars={favoriteCars} />}
-          />
+          <Route path="catalog" element={<CatalogPage />} />
+          <Route path="favorites" element={<FavoritePage />} />
           <Route path="*" element={<Navigate to={'/'} />} />
         </Route>
       </Routes>

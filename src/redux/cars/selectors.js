@@ -15,6 +15,7 @@ export const selectCars = createSelector(
       const carFinded = result.find(car => car.id === id);
       carFinded && (carFinded.favorite = true);
     });
+
     return result;
   }
 );

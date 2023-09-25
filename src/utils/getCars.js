@@ -26,7 +26,11 @@ export const getCars = (cars, query, page, PER_PAGE = 8) => {
     result = result.filter(car => car.mileage <= mileageTo);
   }
 
-  const index = page * PER_PAGE - PER_PAGE;
+  const index = page * PER_PAGE;
 
-  return result.slice(index, index + PER_PAGE);
+  const resultByPage = result.slice(0, index);
+  return {
+    overallLength: result.length,
+    carsFiltered: resultByPage,
+  };
 };

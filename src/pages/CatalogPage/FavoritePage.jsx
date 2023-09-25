@@ -8,15 +8,15 @@ import { FormSearch } from 'components/Form/Form';
 import { getCars } from 'utils';
 import { LoadMoreBtn } from './CatalogPage.styled';
 import { Helmet } from 'react-helmet-async';
+import { useSelector } from 'react-redux';
+import { selectFavoriteCars } from 'redux/cars/selectors';
 
-const FavoritePage = ({ allCars }) => {
+const FavoritePage = () => {
   const [query, setQuery] = useState({});
   const [page, setPage] = useState(1);
   const [cars, setCars] = useState([]);
 
-  const handleClickLoadMore = () => {
-    setPage(prevState => prevState + 1);
-  };
+  const allCars = useSelector(selectFavoriteCars);
 
   const ref = useRef();
 
@@ -27,28 +27,31 @@ const FavoritePage = ({ allCars }) => {
   }, [query]);
 
   useEffect(() => {
-    const carsFiltered = getCars(allCars, query, page);
+    const carsObject = getCars(allCars, query, page);
 
-    if (allCars.length > 0 && carsFiltered.length === 0 && page === 1) {
+    setCars(carsObject.carsFiltered);
+  }, [allCars, page, query]);
+
+  const handleClickLoadMore = () => {
+    const carsObject = getCars(allCars, query, page);
+    setPage(prevState => prevState + 1);
+    if (allCars.length > 0 && carsObject.overallLength === 0 && page === 1) {
       // відсутні дані
       toast.error("We didn't find any info on your request!");
       ref.current = true;
+      return;
     }
 
-    if (allCars.length > 0 && carsFiltered.length === 0 && page > 1) {
+    if (
+      allCars.length > 0 &&
+      carsObject.overallLength === carsObject.carsFiltered.length
+    ) {
       // кінець колекції
       toast.warn("It's the end of the collection!");
       ref.current = true;
     }
-
-    if (page > 1) {
-      // запит по тих самих ключових полях
-      setCars(prevState => [...prevState, ...carsFiltered]);
-    } else {
-      // новий запит
-      setCars(carsFiltered);
-    }
-  }, [page, allCars, query]);
+    setCars(carsObject.carsFiltered);
+  };
 
   return (
     <section>
