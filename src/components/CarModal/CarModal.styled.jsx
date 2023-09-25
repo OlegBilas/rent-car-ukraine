@@ -17,6 +17,9 @@ export const Img = styled.img`
   border-radius: 14px;
 
   overflow: hidden;
+
+  object-fit: cover;
+  object-position: 50% 50%;
 `;
 
 export const CloseBtn = styled.button`

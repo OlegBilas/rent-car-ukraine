@@ -52,8 +52,8 @@ export const CarModal = ({ car, toggleModal }) => {
       <Img
         src={car.img}
         alt={`${car.make} ${car.model}, ${car.year}`}
-        width="100%"
-        height="auto"
+        width="461"
+        height="248"
       />
       <CarTitle car={car} />
       <FirstLineModal carInfo={getFirstLineModal(car)} />

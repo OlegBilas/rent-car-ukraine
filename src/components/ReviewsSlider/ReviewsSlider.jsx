@@ -59,8 +59,8 @@ const ReviewsSlider = () => {
                     <Image
                       src={car.img}
                       alt={`${car.make} ${car.model}, ${car.year}`}
-                      width="100%"
-                      height="86%"
+                      width="277"
+                      height="244"
                     />
                     <CarInfo>
                       <Name>{`${car.make} ${car.model}, ${car.year}`}</Name>

@@ -46,7 +46,7 @@ export const CarsList = ({ cars }) => {
           <Image
             src={car.img}
             alt={`${car.make} ${car.model}, ${car.year}`}
-            width="100%"
+            width="274"
             height="268"
           />
           <CarTitle car={car} />
