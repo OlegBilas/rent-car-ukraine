@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Formik, ErrorMessage } from 'formik';
+import { Formik } from 'formik';
 import {
   Form,
   SearchBtn,
@@ -13,6 +13,8 @@ import {
   TextToDol,
   TextFrom,
   OpenDiv,
+  DivWrapper,
+  ErrorMessage,
 } from './Form.styled';
 import { ReactComponent as OpenedSvg } from 'images/Form/opened.svg';
 import { ReactComponent as ClosedSvg } from 'images/Form/closed.svg';
@@ -83,6 +85,10 @@ export const FormSearch = ({ setQuery }) => {
         rentalPrice: Yup.number().oneOf(prices, 'Invalid value of price'),
         mileageFrom: Yup.number(),
         mileageTo: Yup.number(),
+        // mileageTo: Yup.number().moreThan(
+        //   Number.parseInt(Yup.ref('mileageFrom')),
+        //   'To should be > From'
+        // ),
       })}
       onSubmit={values => {
         setQuery(values);
@@ -154,25 +160,29 @@ export const FormSearch = ({ setQuery }) => {
 
             <Label>
               Сar mileage/km
-              <Div>
-                <TextFrom>From </TextFrom>
-                <FieldFrom
-                  value={values.mileageFrom}
-                  onValueChange={val =>
-                    setFieldValue('mileageFrom', val.floatValue)
-                  }
-                />
-                <ErrorMessage name="mileageFrom" />
-                <TextTo>To </TextTo>
-                <FieldTo
-                  value={values.mileageTo}
-                  onValueChange={val =>
-                    setFieldValue('mileageTo', val.floatValue)
-                  }
-                />
+              <DivWrapper>
+                <Div>
+                  <TextFrom>From </TextFrom>
+                  <FieldFrom
+                    value={values.mileageFrom}
+                    onValueChange={val =>
+                      setFieldValue('mileageFrom', val.floatValue)
+                    }
+                  />
+                  <ErrorMessage name="mileageFrom" />
+                </Div>
+                <Div>
+                  <TextTo>To </TextTo>
+                  <FieldTo
+                    value={values.mileageTo}
+                    onValueChange={val =>
+                      setFieldValue('mileageTo', val.floatValue)
+                    }
+                  />
 
-                <ErrorMessage name="mileageTo" />
-              </Div>
+                  <ErrorMessage style={{ display: 'block' }} name="mileageTo" />
+                </Div>
+              </DivWrapper>
             </Label>
 
             <SearchBtn type="submit">Search</SearchBtn>
