@@ -1,7 +1,7 @@
 import React from 'react';
 import { Nav, NavLink } from './Header.styled';
 
-export const Header = () => {
+const Header = () => {
   return (
     <header>
       <Nav>
@@ -12,3 +12,5 @@ export const Header = () => {
     </header>
   );
 };
+
+export default Header;

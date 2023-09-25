@@ -1,9 +1,10 @@
 import Description from 'components/Description/Description';
 import ReviewsSlider from 'components/ReviewsSlider/ReviewsSlider';
 import { Section } from './HomePage.styled';
-import { Helmet } from 'react-helmet';
 
-export const HomePage = () => {
+import { Helmet } from 'react-helmet-async';
+
+const HomePage = () => {
   return (
     <Section>
       <Helmet>
@@ -14,3 +15,5 @@ export const HomePage = () => {
     </Section>
   );
 };
+
+export default HomePage;

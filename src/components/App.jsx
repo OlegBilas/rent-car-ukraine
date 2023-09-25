@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Loader from './Loader/Loader';
 import { Navigate, Route, Routes } from 'react-router-dom';
@@ -13,9 +13,10 @@ import {
 
 import { Layout } from './Layout/Layout';
 import { fetchCars, fetchMakes } from 'redux/cars/operations';
-import { CatalogPage } from 'pages/CatalogPage/CatalogPage';
-import { HomePage } from 'pages/HomePage/HomePage';
-import { FavoritePage } from 'pages/CatalogPage/FavoritePage';
+
+const HomePage = lazy(() => import('pages/HomePage/HomePage'));
+const CatalogPage = lazy(() => import('pages/CatalogPage/CatalogPage'));
+const FavoritePage = lazy(() => import('pages/CatalogPage/FavoritePage'));
 
 export function App() {
   const dispatch = useDispatch();
