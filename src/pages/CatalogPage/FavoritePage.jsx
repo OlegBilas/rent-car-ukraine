@@ -35,17 +35,14 @@ const FavoritePage = () => {
   const handleClickLoadMore = () => {
     const carsObject = getCars(allCars, query, page);
     setPage(prevState => prevState + 1);
-    if (allCars.length > 0 && carsObject.overallLength === 0 && page === 1) {
+    if (carsObject.overallLength === 0 && page === 1) {
       // відсутні дані
       toast.error("We didn't find any info on your request!");
       ref.current = true;
       return;
     }
 
-    if (
-      allCars.length > 0 &&
-      carsObject.overallLength === carsObject.carsFiltered.length
-    ) {
+    if (carsObject.overallLength === carsObject.carsFiltered.length) {
       // кінець колекції
       toast.warn("It's the end of the collection!");
       ref.current = true;
