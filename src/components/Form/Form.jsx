@@ -10,6 +10,7 @@ import {
   Label,
   Div,
   TextTo,
+  TextToDol,
   TextFrom,
   OpenDiv,
 } from './Form.styled';
@@ -34,6 +35,7 @@ export const FormSearch = ({ setQuery }) => {
   const [prices, setPrices] = useState([]);
   const [openedMake, setOpenedMake] = useState(false);
   const [openedPrice, setOpenedPrice] = useState(false);
+  const [isShownToDol, setIsShownToDol] = useState(false);
 
   useEffect(() => {
     setPrices(getPriceRanges(cars)); // array of numbers
@@ -120,14 +122,19 @@ export const FormSearch = ({ setQuery }) => {
             <Label>
               Price/1 hour
               <Div>
+                {isShownToDol && <TextToDol>To </TextToDol>}
                 <FieldPrice
                   name="rentalPrice"
                   type="number"
                   as="select"
+                  className={isShownToDol && 'isShownToDol'}
                   onClick={togglePriceMenu}
                   onChange={val => {
                     setFieldValue('rentalPrice', val.target.value);
                     setOpenedPrice(true);
+                    val.target.value === ''
+                      ? setIsShownToDol(false)
+                      : setIsShownToDol(true);
                   }}
                 >
                   <option value="">To $</option>
@@ -140,6 +147,7 @@ export const FormSearch = ({ setQuery }) => {
                     <ClosedSvg width={20} height={20} />
                   )}
                 </OpenDiv>
+
                 <ErrorMessage name="rentalPrice" />
               </Div>
             </Label>

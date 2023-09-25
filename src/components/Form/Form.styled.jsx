@@ -50,6 +50,23 @@ export const FieldMake = styled(FieldStyled)`
 
 export const FieldPrice = styled(FieldStyled)`
   width: 125px;
+  &.isShownToDol {
+    padding-left: 43px;
+  }
+`;
+
+export const TextToDol = styled.span`
+  position: absolute;
+  top: 14px;
+  left: 18px;
+
+  background: #f7f7fb;
+  border: none;
+  color: #121417;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.11111;
 `;
 
 export const OpenDiv = styled.div`
