@@ -1,4 +1,4 @@
-import { lazy, useEffect } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Loader from './Loader/Loader';
 import { Navigate, Route, Routes } from 'react-router-dom';
@@ -27,14 +27,16 @@ export function App() {
     <Loader />
   ) : (
     <>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path="catalog" element={<CatalogPage />} />
-          <Route path="favorites" element={<FavoritePage />} />
-          <Route path="*" element={<Navigate to={'/'} />} />
-        </Route>
-      </Routes>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<HomePage />} />
+            <Route path="catalog" element={<CatalogPage />} />
+            <Route path="favorites" element={<FavoritePage />} />
+            <Route path="*" element={<Navigate to={'/'} />} />
+          </Route>
+        </Routes>
+      </Suspense>
       <ToastContainer />
     </>
   );
