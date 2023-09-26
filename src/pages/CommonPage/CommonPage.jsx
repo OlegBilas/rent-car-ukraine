@@ -16,6 +16,7 @@ const CommonPage = ({ allCars, title }) => {
 
   const ref = useRef();
 
+  // reset all filters before new request
   useEffect(() => {
     setPage(1);
     setCars([]);
@@ -24,22 +25,27 @@ const CommonPage = ({ allCars, title }) => {
 
   useEffect(() => {
     const carsObject = getCars(allCars, query, page);
-
     setCars(carsObject.carsFiltered);
+
+    if (carsObject.overallLength === 0 && page === 1) {
+      // no data
+      toast.error("We didn't find any info on your request!");
+      ref.current = true;
+    }
   }, [allCars, page, query]);
 
   const handleClickLoadMore = () => {
     const carsObject = getCars(allCars, query, page);
     setPage(prevState => prevState + 1);
     if (carsObject.overallLength === 0 && page === 1) {
-      // відсутні дані
+      // no data
       toast.error("We didn't find any info on your request!");
       ref.current = true;
       return;
     }
 
     if (carsObject.overallLength === carsObject.carsFiltered.length) {
-      // кінець колекції
+      // end of collection
       toast.warn("It's the end of the collection!");
       ref.current = true;
     }

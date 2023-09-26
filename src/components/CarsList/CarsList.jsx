@@ -52,7 +52,11 @@ export const CarsList = ({ cars }) => {
           <CarTitle car={car} />
           <Line carInfo={getFirstLine(car)} />
           <Line carInfo={getSecondLine(car)} />
-          <LearnMoreBtn type="buton" onClick={() => toggleModal(car)}>
+          <LearnMoreBtn
+            className="accent-button"
+            type="buton"
+            onClick={() => toggleModal(car)}
+          >
             Learn more
           </LearnMoreBtn>
         </Item>

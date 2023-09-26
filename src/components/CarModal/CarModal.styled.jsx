@@ -110,7 +110,8 @@ export const PhoneUs = styled.a`
   font-weight: 600;
   line-height: 1.42857;
 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {

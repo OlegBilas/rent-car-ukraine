@@ -165,7 +165,7 @@ export const FieldTo = styled(MyNumberInputStyled)`
 `;
 
 export const SearchBtn = styled.button`
-  align-self: center;
+  align-self: flex-end;
   padding: 14px 44px;
   border-radius: 12px;
   background-color: #3470ff;

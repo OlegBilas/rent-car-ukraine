@@ -185,7 +185,9 @@ export const FormSearch = ({ setQuery }) => {
               </DivWrapper>
             </Label>
 
-            <SearchBtn type="submit">Search</SearchBtn>
+            <SearchBtn className="accent-button" type="submit">
+              Search
+            </SearchBtn>
           </Form>
         );
       }}
