@@ -6,17 +6,13 @@ import { CarsList } from 'components/CarsList/CarsList';
 import { FormSearch } from 'components/Form/Form';
 
 import { getCars } from 'utils';
-import { LoadMoreBtn } from './CatalogPage.styled';
+import { LoadMoreBtn } from './CommonPage.styled';
 import { Helmet } from 'react-helmet-async';
-import { useSelector } from 'react-redux';
-import { selectCars } from 'redux/cars/selectors';
 
-const CatalogPage = () => {
+const CommonPage = ({ allCars, title }) => {
   const [query, setQuery] = useState({});
   const [page, setPage] = useState(1);
   const [cars, setCars] = useState([]);
-
-  const allCars = useSelector(selectCars);
 
   const ref = useRef();
 
@@ -53,7 +49,7 @@ const CatalogPage = () => {
   return (
     <section>
       <Helmet>
-        <title>Our adverts</title>
+        <title>{title}</title>
       </Helmet>
       <FormSearch setQuery={setQuery} />
       <CarsList cars={cars} />
@@ -66,4 +62,4 @@ const CatalogPage = () => {
   );
 };
 
-export default CatalogPage;
+export default CommonPage;

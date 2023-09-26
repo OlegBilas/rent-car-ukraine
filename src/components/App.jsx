@@ -11,8 +11,8 @@ import { Layout } from './Layout/Layout';
 import { fetchCars, fetchMakes } from 'redux/cars/operations';
 
 const HomePage = lazy(() => import('pages/HomePage/HomePage'));
-const CatalogPage = lazy(() => import('pages/CatalogPage/CatalogPage'));
-const FavoritePage = lazy(() => import('pages/CatalogPage/FavoritePage'));
+const CatalogPage = lazy(() => import('pages/CatalogPage'));
+const FavoritePage = lazy(() => import('pages/FavoritePage'));
 
 export function App() {
   const dispatch = useDispatch();
