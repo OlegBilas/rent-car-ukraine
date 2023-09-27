@@ -29,7 +29,6 @@ const CommonPage = ({ allCars, title }) => {
 
     if (carsObject.overallLength === 0 && page === 1) {
       // no data
-      toast.error("We didn't find any info on your request!");
       ref.current = true;
     }
   }, [allCars, page, query]);
