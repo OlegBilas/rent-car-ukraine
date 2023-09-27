@@ -110,6 +110,8 @@ export const MyNumberInputStyled = styled(MyNumberInput)`
 export const FieldPrice = styled(MyNumberInputStyled)`
   width: 125px;
   border-radius: 14px;
+  font-family: Manrope;
+
   &::placeholder {
     color: #121417;
   }
@@ -168,23 +170,9 @@ export const TextFrom = styled.span`
   line-height: 1.11111;
 `;
 
-export const TextTo = styled.span`
-  position: absolute;
-  top: 22px;
-  left: 24px;
-  z-index: 1;
-
-  background: #f7f7fb;
-  border: none;
-  color: #121417;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.11111;
-`;
+export const TextTo = styled(TextFrom)``;
 
 export const FieldTo = styled(MyNumberInputStyled)`
-  position: relative;
   width: 160px;
   border-top-right-radius: 14px;
   border-bottom-right-radius: 14px;

@@ -67,15 +67,21 @@ export const FormSearch = ({ setQuery }) => {
       validationSchema={Yup.object().shape({
         make: Yup.string().oneOf(makes, 'Invalid make of car'),
         rentalPrice: Yup.number().oneOf(prices, 'Invalid rental price of car'),
-        mileageFrom: Yup.number(),
-        mileageTo: Yup.number(),
-        // mileageTo: Yup.number().moreThan(
-        //   Number.parseInt(Yup.ref('mileageFrom')),
-        //   'To should be > From'
-        // ),
+        mileageFrom: Yup.number().lessThan(
+          Yup.ref('mileageTo') > 0
+            ? Yup.ref('mileageTo')
+            : Number.MAX_SAFE_INTEGER,
+          'From should be < To'
+        ),
+        mileageTo: Yup.number().moreThan(
+          Yup.ref('mileageFrom') > 0 ? Yup.ref('mileageFrom') : 0,
+          'To should be > From'
+        ),
       })}
       onSubmit={values => {
         setQuery(values);
+        setOpenedMake(false);
+        setOpenedPrice(false);
       }}
     >
       {props => {
@@ -90,7 +96,7 @@ export const FormSearch = ({ setQuery }) => {
                   type="text"
                   onClick={toggleMakeMenu}
                   placeholder="Enter the text"
-                  autocomplete="off"
+                  autoComplete="off"
                 />
                 {openedMake && (
                   <List> {getOptions(makes, setFieldValue, 'make')}</List>
@@ -112,13 +118,13 @@ export const FormSearch = ({ setQuery }) => {
                 <FieldPrice
                   onClick={togglePriceMenu}
                   value={values.rentalPrice}
-                  onValueChange={val =>
-                    setFieldValue('rentalPrice', val.floatValue)
+                  onValueChange={
+                    val => setFieldValue('rentalPrice', val.floatValue) // floatValue - NumericFormat method to get number
                   }
                   prefix="To "
                   suffix="$"
                   placeholder="To $"
-                  autocomplete="off"
+                  autoComplete="off"
                 />
                 {openedPrice && (
                   <List>
@@ -145,8 +151,8 @@ export const FormSearch = ({ setQuery }) => {
                   <TextFrom>From </TextFrom>
                   <FieldFrom
                     value={values.mileageFrom}
-                    onValueChange={val =>
-                      setFieldValue('mileageFrom', val.floatValue)
+                    onValueChange={
+                      val => setFieldValue('mileageFrom', val.floatValue) // floatValue - NumericFormat method to get number
                     }
                   />
                   <ErrorMessage name="mileageFrom" />
@@ -155,8 +161,8 @@ export const FormSearch = ({ setQuery }) => {
                   <TextTo>To </TextTo>
                   <FieldTo
                     value={values.mileageTo}
-                    onValueChange={val =>
-                      setFieldValue('mileageTo', val.floatValue)
+                    onValueChange={
+                      val => setFieldValue('mileageTo', val.floatValue) // floatValue - NumericFormat method to get number
                     }
                   />
 
@@ -168,7 +174,15 @@ export const FormSearch = ({ setQuery }) => {
             <SearchBtn className="accent-button" type="submit">
               Search
             </SearchBtn>
-            <SearchBtn className="accent-button" type="reset">
+            <SearchBtn
+              className="accent-button"
+              type="reset"
+              onClick={values => {
+                setQuery(values);
+                setOpenedMake(false);
+                setOpenedPrice(false);
+              }}
+            >
               Reset
             </SearchBtn>
           </Form>
