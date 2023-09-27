@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Form as FormStyled } from 'formik';
-import { Field, ErrorMessage as ErrorMessageStyled } from 'formik';
+import { Field } from 'formik';
 import { MyNumberInput } from 'components/MyNumberInput/MyNumberInput';
 
 export const Form = styled(FormStyled)`
@@ -22,10 +22,10 @@ export const Label = styled.label`
 `;
 
 export const FieldStyled = styled(Field)`
-  display: block;
   height: 48px;
   padding: 14px 18px;
   margin-top: 8px;
+  box-sizing: border-box;
   border-radius: 14px;
   border: none;
   background: #f7f7fb;
@@ -36,32 +36,66 @@ export const FieldStyled = styled(Field)`
   font-weight: 500;
   line-height: 1.11111;
   outline: none;
-
-  & > option {
-    color: rgba(18, 20, 23, 0.2);
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.25;
-  }
 `;
 
 export const FieldMake = styled(FieldStyled)`
   width: 224px;
-`;
-
-export const FieldPrice = styled(FieldStyled)`
-  width: 125px;
-  &.isShownToDol {
-    padding-left: 43px;
+  &::placeholder {
+    color: #121417;
   }
 `;
 
-export const TextToDol = styled.span`
+export const List = styled.ul`
   position: absolute;
-  top: 25px;
-  left: 18px;
+  top: 52px;
+  z-index: 1;
 
+  width: 100%;
+  height: 272px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  padding: 14px 18px;
+  color: rgba(18, 20, 23, 0.2);
+  background-color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.25;
+
+  border-radius: 14px;
+  border: 1px solid rgba(18, 20, 23, 0.05);
+  background: #fff;
+  box-shadow: 0px 4px 36px 0px rgba(0, 0, 0, 0.02);
+
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(18, 20, 23, 0.05);
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #fff;
+  }
+
+  & > li:hover,
+  & > li:focus {
+    color: #121417;
+  }
+`;
+
+export const MyNumberInputStyled = styled(MyNumberInput)`
+  margin-top: 8px;
+  height: 48px;
+  padding: 14px 18px;
+
+  width: 160px;
   background: #f7f7fb;
   border: none;
   color: #121417;
@@ -69,6 +103,16 @@ export const TextToDol = styled.span`
   font-style: normal;
   font-weight: 500;
   line-height: 1.11111;
+  outline: none;
+  box-sizing: border-box;
+`;
+
+export const FieldPrice = styled(MyNumberInputStyled)`
+  width: 125px;
+  border-radius: 14px;
+  &::placeholder {
+    color: #121417;
+  }
 `;
 
 export const OpenDiv = styled.div`
@@ -90,23 +134,6 @@ export const OpenDiv = styled.div`
     background-color: #f7f7fb;
     border: none;
   }
-`;
-
-export const MyNumberInputStyled = styled(MyNumberInput)`
-  margin-top: 8px;
-  height: 48px;
-  padding: 14px 18px;
-
-  width: 160px;
-  background: #f7f7fb;
-  border: none;
-  color: #121417;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.11111;
-  outline: none;
-  box-sizing: border-box;
 `;
 
 export const DivWrapper = styled.div`
@@ -174,8 +201,4 @@ export const SearchBtn = styled.button`
   font-size: 14px;
   font-weight: 600;
   line-height: 1.42857;
-`;
-
-export const ErrorMessage = styled(ErrorMessageStyled)`
-  color: red;
 `;

@@ -11,6 +11,7 @@ export const MyNumberInput = props => {
       decimalScale={0}
       allowNegative={false}
       prefix={props.prefix}
+      suffix={props.suffix}
       value={value}
       onValueChange={vals => setValue(vals.formattedValue)}
       {...props}

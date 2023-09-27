@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Formik } from 'formik';
+import { Formik, ErrorMessage } from 'formik';
 import {
   Form,
   SearchBtn,
@@ -10,11 +10,10 @@ import {
   Label,
   Div,
   TextTo,
-  TextToDol,
   TextFrom,
   OpenDiv,
   DivWrapper,
-  ErrorMessage,
+  List,
 } from './Form.styled';
 import { ReactComponent as OpenedSvg } from 'images/Form/opened.svg';
 import { ReactComponent as ClosedSvg } from 'images/Form/closed.svg';
@@ -37,7 +36,6 @@ export const FormSearch = ({ setQuery }) => {
   const [prices, setPrices] = useState([]);
   const [openedMake, setOpenedMake] = useState(false);
   const [openedPrice, setOpenedPrice] = useState(false);
-  const [isShownToDol, setIsShownToDol] = useState(false);
 
   useEffect(() => {
     setPrices(getPriceRanges(cars)); // array of numbers
@@ -51,30 +49,16 @@ export const FormSearch = ({ setQuery }) => {
     setOpenedPrice(prevState => !prevState);
   };
 
-  const getMakeOptions = items =>
+  const getOptions = (items, setFieldValue, nameInput) =>
     items.map(item => (
-      <option
+      <li
         key={item}
-        value={item}
         onClick={() => {
-          setOpenedMake(false);
+          setFieldValue(nameInput, item);
         }}
       >
         {item}
-      </option>
-    ));
-
-  const getPriceOptions = items =>
-    items.map(item => (
-      <option
-        key={item}
-        value={item}
-        onClick={() => {
-          setOpenedPrice(false);
-        }}
-      >
-        {`${item}$`}
-      </option>
+      </li>
     ));
 
   return (
@@ -82,7 +66,7 @@ export const FormSearch = ({ setQuery }) => {
       initialValues={initialValues}
       validationSchema={Yup.object().shape({
         make: Yup.string().oneOf(makes, 'Invalid make of car'),
-        rentalPrice: Yup.number().oneOf(prices, 'Invalid value of price'),
+        rentalPrice: Yup.number().oneOf(prices, 'Invalid rental price of car'),
         mileageFrom: Yup.number(),
         mileageTo: Yup.number(),
         // mileageTo: Yup.number().moreThan(
@@ -104,16 +88,13 @@ export const FormSearch = ({ setQuery }) => {
                 <FieldMake
                   name="make"
                   type="text"
-                  as="select"
                   onClick={toggleMakeMenu}
-                  onChange={val => {
-                    setFieldValue('make', val.target.value);
-                    setOpenedMake(true);
-                  }}
-                >
-                  <option value="">Enter the text</option>
-                  {getMakeOptions(makes)}
-                </FieldMake>
+                  placeholder="Enter the text"
+                  autocomplete="off"
+                />
+                {openedMake && (
+                  <List> {getOptions(makes, setFieldValue, 'make')}</List>
+                )}
                 <OpenDiv>
                   {openedMake ? (
                     <OpenedSvg width={20} height={20} />
@@ -128,24 +109,23 @@ export const FormSearch = ({ setQuery }) => {
             <Label>
               Price/1 hour
               <Div>
-                {isShownToDol && <TextToDol>To </TextToDol>}
                 <FieldPrice
-                  name="rentalPrice"
-                  type="number"
-                  as="select"
-                  className={isShownToDol && 'isShownToDol'}
                   onClick={togglePriceMenu}
-                  onChange={val => {
-                    setFieldValue('rentalPrice', val.target.value);
-                    setOpenedPrice(true);
-                    val.target.value === ''
-                      ? setIsShownToDol(false)
-                      : setIsShownToDol(true);
-                  }}
-                >
-                  <option value="">To $</option>
-                  {getPriceOptions(prices)}
-                </FieldPrice>
+                  value={values.rentalPrice}
+                  onValueChange={val =>
+                    setFieldValue('rentalPrice', val.floatValue)
+                  }
+                  prefix="To "
+                  suffix="$"
+                  placeholder="To $"
+                  autocomplete="off"
+                />
+                {openedPrice && (
+                  <List>
+                    {getOptions(prices, setFieldValue, 'rentalPrice')}
+                  </List>
+                )}
+
                 <OpenDiv>
                   {openedPrice ? (
                     <OpenedSvg width={20} height={20} />
@@ -180,13 +160,16 @@ export const FormSearch = ({ setQuery }) => {
                     }
                   />
 
-                  <ErrorMessage style={{ display: 'block' }} name="mileageTo" />
+                  <ErrorMessage name="mileageTo" />
                 </Div>
               </DivWrapper>
             </Label>
 
             <SearchBtn className="accent-button" type="submit">
               Search
+            </SearchBtn>
+            <SearchBtn className="accent-button" type="reset">
+              Reset
             </SearchBtn>
           </Form>
         );
