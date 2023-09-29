@@ -7,14 +7,16 @@ import {
   LikeBtn,
 } from './CarsList.styled';
 import { useState } from 'react';
-import { getFirstLine, getSecondLine } from 'utils';
+import { calcWidth, getFirstLine, getSecondLine } from 'utils';
 import { CarTitle } from 'components/CarTitle/CarTitle';
 import { Line } from 'components/Line/Line';
 import { useDispatch } from 'react-redux';
 import { setFavorite } from 'redux/cars/carsSlice';
 import { ModalWrapper } from 'components/ModalWrapper/ModalWrapper';
+import { useTheme } from 'styled-components';
 
 export const CarsList = ({ cars }) => {
+  const theme = useTheme();
   const [showModal, setShowModal] = useState(false);
   const [car, setCar] = useState();
 
@@ -46,7 +48,7 @@ export const CarsList = ({ cars }) => {
           <Image
             src={car.img}
             alt={`${car.make} ${car.model}, ${car.year}`}
-            width="274"
+            width={calcWidth(274, theme.width)}
             height="268"
           />
           <CarTitle car={car} />

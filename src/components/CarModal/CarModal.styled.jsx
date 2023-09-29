@@ -2,14 +2,19 @@ import styled from 'styled-components';
 import { CarTitle as CarTitleStyled } from 'components/CarTitle/CarTitle';
 import { Line } from 'components/Line/Line';
 import { ReactComponent as CloseStyled } from 'images/CarModal/x.svg';
+import { calcWidth } from 'utils';
+import { SCREENS } from 'components/GlobalStyle';
 
 export const Container = styled.div`
   position: relative;
-  width: 541px;
+  width: ${({ theme }) => calcWidth('296px', theme.width, 320)};
 
   padding: 40px;
   border-radius: 24px;
   background: #fff;
+  @media screen and (min-width: ${SCREENS.TABLET}) {
+    width: ${({ theme }) => calcWidth('541px', theme.width)};
+  }
 `;
 
 export const Img = styled.img`

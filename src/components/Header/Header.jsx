@@ -1,15 +1,15 @@
 import React from 'react';
-import { Nav, NavLink } from './Header.styled';
+import { HeaderComp, Nav, NavLink } from './Header.styled';
 
 const Header = () => {
   return (
-    <header>
+    <HeaderComp>
       <Nav>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/catalog">Catalog</NavLink>
         <NavLink to="/favorites">Favorites</NavLink>
       </Nav>
-    </header>
+    </HeaderComp>
   );
 };
 

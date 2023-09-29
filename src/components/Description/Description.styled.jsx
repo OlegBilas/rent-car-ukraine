@@ -1,22 +1,26 @@
 import styled from 'styled-components';
+import { calcWidth, calcFontSize } from 'utils';
+import { SCREENS } from 'components/GlobalStyle';
 
 export const Title = styled.h1`
-  margin-bottom: 48px;
+  /* width: fit-content; */
+  margin-bottom: ${({ theme }) => calcWidth('48px', theme.width)};
   font-weight: 600;
-  font-size: 104px;
+  font-size: ${({ theme }) => calcFontSize('104px', theme.width)};
   font-style: italic;
   text-align: center;
+
   line-height: 1;
   color: #3e85f3;
 
   border-radius: 44px;
-  padding: 18px 18px;
+  padding: ${({ theme }) => calcWidth('18px', theme.width)};
 
   background-color: rgb(247, 247, 251);
 `;
 
 export const ListItem = styled.li`
-  width: 80%;
+  width: 100%;
   margin-right: auto;
   transform: translateX(-150%);
   transition: transform 2500ms ease;
@@ -33,22 +37,26 @@ export const ListItem = styled.li`
   &.loaded {
     transform: translateX(0%);
   }
+
+  @media screen and (min-width: ${SCREENS.TABLET}) {
+    width: 80%;
+  }
 `;
 
 export const TitleWrapper = styled.h2`
   display: flex;
   align-items: center;
-  margin-bottom: 24px;
+  margin-bottom: ${({ theme }) => calcWidth('24px', theme.width)};
 `;
 export const StyledNumber = styled.span`
   font-weight: 600;
-  font-size: 104px;
+  font-size: ${({ theme }) => calcFontSize('104px', theme.width)};
 
   color: #3e85f3;
 `;
 export const StyledLabel = styled.span`
   font-weight: 600;
-  font-size: 40px;
+  font-size: ${({ theme }) => calcFontSize('40px', theme.width)};
   line-height: 1.1;
   text-transform: uppercase;
   border-radius: 44px;
@@ -60,9 +68,9 @@ export const StyledLabel = styled.span`
 
 export const Info = styled.p`
   font-weight: 500;
-  font-size: 24px;
+  font-size: ${({ theme }) => calcFontSize('24px', theme.width)};
   line-height: 1.3;
   color: #ffffff;
 
-  margin-bottom: 48px;
+  margin-bottom: ${({ theme }) => calcWidth('48px', theme.width)};
 `;

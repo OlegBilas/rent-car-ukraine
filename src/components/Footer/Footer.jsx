@@ -10,7 +10,8 @@ const Footer = () => {
         rel="noopener noreferrer"
         className="active-burron"
       >
-        <GithubIcon /> Designed by Oleg Bilas
+        <GithubIcon />
+        Designed by Oleg Bilas
       </GithubLink>
     </FooterWrapper>
   );

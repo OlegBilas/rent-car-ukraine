@@ -14,6 +14,7 @@ import {
   OpenDiv,
   DivWrapper,
   List,
+  TabletWrapper,
 } from './Form.styled';
 import { ReactComponent as OpenedSvg } from 'images/Form/opened.svg';
 import { ReactComponent as ClosedSvg } from 'images/Form/closed.svg';
@@ -88,62 +89,63 @@ export const FormSearch = ({ setQuery }) => {
         const { values, setFieldValue } = props;
         return (
           <Form>
-            <Label>
-              Car brand
-              <Div>
-                <FieldMake
-                  name="make"
-                  type="text"
-                  onClick={toggleMakeMenu}
-                  placeholder="Enter the text"
-                  autoComplete="off"
-                />
-                {openedMake && (
-                  <List> {getOptions(makes, setFieldValue, 'make')}</List>
-                )}
-                <OpenDiv>
-                  {openedMake ? (
-                    <OpenedSvg width={20} height={20} />
-                  ) : (
-                    <ClosedSvg width={20} height={20} />
+            <TabletWrapper>
+              <Label>
+                Car brand
+                <Div>
+                  <FieldMake
+                    name="make"
+                    type="text"
+                    onClick={toggleMakeMenu}
+                    placeholder="Enter the text"
+                    autoComplete="off"
+                  />
+                  {openedMake && (
+                    <List> {getOptions(makes, setFieldValue, 'make')}</List>
                   )}
-                </OpenDiv>
-                <ErrorMessage name="make" />
-              </Div>
-            </Label>
+                  <OpenDiv>
+                    {openedMake ? (
+                      <OpenedSvg width={20} height={20} />
+                    ) : (
+                      <ClosedSvg width={20} height={20} />
+                    )}
+                  </OpenDiv>
+                  <ErrorMessage name="make" />
+                </Div>
+              </Label>
 
-            <Label>
-              Price/1 hour
-              <Div>
-                <FieldPrice
-                  onClick={togglePriceMenu}
-                  value={values.rentalPrice}
-                  onValueChange={
-                    val => setFieldValue('rentalPrice', val.floatValue) // floatValue - NumericFormat method to get number
-                  }
-                  prefix="To "
-                  suffix="$"
-                  placeholder="To $"
-                  autoComplete="off"
-                />
-                {openedPrice && (
-                  <List>
-                    {getOptions(prices, setFieldValue, 'rentalPrice')}
-                  </List>
-                )}
-
-                <OpenDiv>
-                  {openedPrice ? (
-                    <OpenedSvg width={20} height={20} />
-                  ) : (
-                    <ClosedSvg width={20} height={20} />
+              <Label>
+                Price/1 hour
+                <Div>
+                  <FieldPrice
+                    onClick={togglePriceMenu}
+                    value={values.rentalPrice}
+                    onValueChange={
+                      val => setFieldValue('rentalPrice', val.floatValue) // floatValue - NumericFormat method to get number
+                    }
+                    prefix="To "
+                    suffix="$"
+                    placeholder="To $"
+                    autoComplete="off"
+                  />
+                  {openedPrice && (
+                    <List>
+                      {getOptions(prices, setFieldValue, 'rentalPrice')}
+                    </List>
                   )}
-                </OpenDiv>
 
-                <ErrorMessage name="rentalPrice" />
-              </Div>
-            </Label>
+                  <OpenDiv>
+                    {openedPrice ? (
+                      <OpenedSvg width={20} height={20} />
+                    ) : (
+                      <ClosedSvg width={20} height={20} />
+                    )}
+                  </OpenDiv>
 
+                  <ErrorMessage name="rentalPrice" />
+                </Div>
+              </Label>
+            </TabletWrapper>
             <Label>
               Сar mileage/km
               <DivWrapper>
@@ -170,21 +172,22 @@ export const FormSearch = ({ setQuery }) => {
                 </Div>
               </DivWrapper>
             </Label>
-
-            <SearchBtn className="accent-button" type="submit">
-              Search
-            </SearchBtn>
-            <SearchBtn
-              className="accent-button"
-              type="reset"
-              onClick={values => {
-                setQuery(values);
-                setOpenedMake(false);
-                setOpenedPrice(false);
-              }}
-            >
-              Reset
-            </SearchBtn>
+            <TabletWrapper>
+              <SearchBtn className="accent-button" type="submit">
+                Search
+              </SearchBtn>
+              <SearchBtn
+                className="accent-button"
+                type="reset"
+                onClick={values => {
+                  setQuery(values);
+                  setOpenedMake(false);
+                  setOpenedPrice(false);
+                }}
+              >
+                Reset
+              </SearchBtn>
+            </TabletWrapper>
           </Form>
         );
       }}

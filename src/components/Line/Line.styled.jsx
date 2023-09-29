@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const LineList = styled.ul`
   display: flex;
+  flex-wrap: nowrap;
   justify-content: start;
   color: rgba(18, 20, 23, 0.5);
   font-size: 12px;
@@ -18,7 +19,7 @@ export const LineList = styled.ul`
     padding-left: 0px;
   }
   & > li:last-child {
-    padding-left: 6px;
+    padding-right: 0px;
     border-right: none;
     overflow: hidden;
     text-overflow: ellipsis;

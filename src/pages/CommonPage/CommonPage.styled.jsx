@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { calcFontSize } from 'utils';
 
 export const LoadMoreBtn = styled.button`
   display: block;
@@ -9,7 +10,7 @@ export const LoadMoreBtn = styled.button`
   background-color: inherit;
   border: none;
 
-  font-size: 16px;
+  font-size: ${({ theme }) => calcFontSize('16px', theme.width)};
   font-weight: 500;
   line-height: 1.5;
   text-decoration-line: underline;

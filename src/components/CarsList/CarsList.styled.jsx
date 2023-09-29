@@ -1,18 +1,38 @@
 import styled from 'styled-components';
 import { ReactComponent as LikeStyled } from 'images/CarsList/like.svg';
+import { SCREENS } from 'components/GlobalStyle';
+import { calcWidth } from 'utils';
 
 export const List = styled.ul`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+  grid-template-columns: repeat(
+    1,
+    ${({ theme }) => calcWidth('236px', theme.width, 320)}
+  );
   grid-template-rows: auto;
-  grid-row-gap: 50px;
-  grid-column-gap: 28px;
+  grid-row-gap: ${({ theme }) => calcWidth('50px', theme.width)};
+  grid-column-gap: ${({ theme }) => calcWidth('28px', theme.width)};
 
-  margin-bottom: 100px;
+  margin-bottom: ${({ theme }) => calcWidth('100px', theme.width)};
+
+  @media screen and (min-width: ${SCREENS.TABLET}) {
+    grid-template-columns: repeat(
+      2,
+      ${({ theme }) => calcWidth('302px', theme.width, 768)}
+    );
+  }
+  @media screen and (min-width: ${SCREENS.DESKTOP}) {
+    grid-template-columns: repeat(
+      4,
+      ${({ theme }) => calcWidth('274px', theme.width)}
+    );
+  }
 `;
 
 export const Item = styled.li`
   position: relative;
+
   color: rgba(18, 20, 23, 0.5);
   font-size: 12px;
   font-weight: 400;
@@ -73,5 +93,5 @@ export const LearnMoreBtn = styled.button`
   width: 100%;
   padding: 12px;
   text-align: center;
-  margin-top: 28px;
+  margin-top: ${({ theme }) => calcWidth('28px', theme.width)};
 `;

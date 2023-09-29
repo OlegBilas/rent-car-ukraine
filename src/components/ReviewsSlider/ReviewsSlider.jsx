@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore from 'swiper';
-import { Navigation, Autoplay } from 'swiper/modules';
+import { Autoplay } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/virtual';
@@ -15,7 +15,6 @@ import {
   SliderCard,
   ReviewContainer,
   CarInfo,
-  ImgWrapper,
   Image,
 } from './ReviewsSlider.styled';
 
@@ -35,16 +34,15 @@ const ReviewsSlider = () => {
           initialSlide={1}
           slidesPerView={1}
           autoplay={{ delay: 3000 }}
-          navigation={{
-            prevEl: '#prev-button',
-            nextEl: '#next-button',
-          }}
-          modules={[Navigation]}
           direction={'horizontal'}
           autoHeight={true}
           spaceBetween={24}
           loop={true}
           breakpoints={{
+            320: {
+              slidesPerView: 1,
+              slidesPerGroup: 1,
+            },
             1440: {
               slidesPerView: 2,
               slidesPerGroup: 2,
@@ -55,17 +53,13 @@ const ReviewsSlider = () => {
             <SwiperSlide key={car.id}>
               <SliderCard>
                 <ReviewContainer>
-                  <ImgWrapper>
-                    <Image
-                      src={car.img}
-                      alt={`${car.make} ${car.model}, ${car.year}`}
-                      width="277"
-                      height="244"
-                    />
-                    <CarInfo>
-                      <Name>{`${car.make} ${car.model}, ${car.year}`}</Name>
-                    </CarInfo>
-                  </ImgWrapper>
+                  <Image
+                    src={car.img}
+                    alt={`${car.make} ${car.model}, ${car.year}`}
+                  />
+                  <CarInfo>
+                    <Name>{`${car.make} ${car.model}, ${car.year}`}</Name>
+                  </CarInfo>
                 </ReviewContainer>
               </SliderCard>
             </SwiperSlide>

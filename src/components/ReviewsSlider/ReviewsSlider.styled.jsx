@@ -1,29 +1,39 @@
+import { SCREENS } from 'components/GlobalStyle';
 import styled from 'styled-components';
+import { calcFontSize, calcWidth } from 'utils';
 
 export const Container = styled.div`
-  width: 60%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
+
+  @media screen and (min-width: ${SCREENS.TABLET}) {
+    width: 60%;
+  }
 `;
 
 export const Title = styled.h2`
   font-weight: 700;
-  font-size: 40px;
+  font-size: ${({ theme }) => calcFontSize('40px', theme.width)};
   line-height: 1.1;
   color: #3e85f3;
   text-align: center;
   text-transform: uppercase;
 
-  margin-bottom: 50px;
+  margin-bottom: ${({ theme }) => calcWidth('50px', theme.width)};
 `;
 
 export const SliderCard = styled.div`
-  height: 284px;
-  margin-bottom: 18px;
-  padding: 32px;
+  height: 204px;
+  margin-bottom: ${({ theme }) => calcWidth('18px', theme.width)};
+  padding: ${({ theme }) => calcWidth('32px', theme.width)};
 
   border-radius: 8px;
   border: 1px solid #e7e5e5;
+
+  @media screen and (min-width: ${SCREENS.TABLET}) {
+    height: 284px;
+  }
 `;
 
 export const ReviewContainer = styled.div`
@@ -36,14 +46,8 @@ export const ReviewContainer = styled.div`
   background-color: #ffffff;
 `;
 
-export const ImgWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-
-  overflow: hidden;
-`;
-
 export const Image = styled.img`
+  height: 80%;
   object-fit: cover;
   object-position: 50% 50%;
   background-repeat: no-repeat;
@@ -53,12 +57,11 @@ export const CarInfo = styled.div`
 `;
 
 export const Name = styled.h3`
-  margin-top: 12px;
-  margin-bottom: 12px;
+  margin-top: 16px;
 
   font-style: normal;
   font-weight: 700;
-  font-size: 18px;
+  font-size: ${({ theme }) => calcFontSize('18px', theme.width)};
   line-height: 1;
   color: #343434;
   text-align: center;
