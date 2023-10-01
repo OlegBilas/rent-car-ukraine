@@ -12,7 +12,7 @@ export const Nav = styled.nav`
   display: flex;
   justify-content: end;
   align-items: center;
-  gap: 24px;
+  gap: ${({ theme }) => calcFontSize('24px', theme.width)};
   padding-top: ${({ theme }) => calcWidth('32px', theme.width)};
   padding-bottom: ${({ theme }) => calcWidth('32px', theme.width)};
   margin-left: auto;
@@ -21,10 +21,14 @@ export const Nav = styled.nav`
 
 export const NavLink = styled(NavLinkForStyle)`
   color: #3e85f3;
-  font-size: 18px;
+  font-size: ${({ theme }) => calcFontSize('18px', theme.width, 320)};
   font-weight: 600;
   line-height: 1.5;
   text-decoration-line: none;
+
+  @media screen and (min-width: 425px) {
+    font-size: ${({ theme }) => calcFontSize('18px', theme.width, 425)};
+  }
 
   @media screen and (min-width: ${SCREENS.TABLET}) {
     font-size: ${({ theme }) => calcFontSize('20px', theme.width, 768)};

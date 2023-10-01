@@ -3,8 +3,7 @@ import { calcWidth, calcFontSize } from 'utils';
 import { SCREENS } from 'components/GlobalStyle';
 
 export const Title = styled.h1`
-  /* width: fit-content; */
-  margin-bottom: ${({ theme }) => calcWidth('48px', theme.width)};
+  margin-bottom: 48px;
   font-weight: 600;
   font-size: ${({ theme }) => calcFontSize('104px', theme.width)};
   font-style: italic;
@@ -17,6 +16,10 @@ export const Title = styled.h1`
   padding: ${({ theme }) => calcWidth('18px', theme.width)};
 
   background-color: rgb(247, 247, 251);
+
+  @media screen and (max-width: 580px) {
+    margin-top: 48px;
+  }
 `;
 
 export const ListItem = styled.li`
@@ -32,6 +35,9 @@ export const ListItem = styled.li`
   }
   &:nth-child(3) {
     transition: transform 2500ms cubic-bezier(0.4, 0, 0.2, 1) 5000ms;
+    @media screen and (max-width: 580px) {
+      margin-bottom: 48px;
+    }
   }
 
   &.loaded {

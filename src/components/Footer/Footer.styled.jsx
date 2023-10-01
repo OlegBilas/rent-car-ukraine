@@ -9,8 +9,7 @@ export const FooterWrapper = styled.footer`
   align-items: center;
   padding-top: ${({ theme }) => calcWidth('32px', theme.width)};
   padding-bottom: ${({ theme }) => calcWidth('32px', theme.width)};
-  margin-left: auto;
-  margin-right: auto;
+
   background-color: #3470ff;
 `;
 

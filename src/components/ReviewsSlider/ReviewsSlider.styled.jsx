@@ -16,7 +16,7 @@ export const Title = styled.h2`
   font-weight: 700;
   font-size: ${({ theme }) => calcFontSize('40px', theme.width)};
   line-height: 1.1;
-  color: #3e85f3;
+  color: #fff;
   text-align: center;
   text-transform: uppercase;
 

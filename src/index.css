@@ -1,13 +1,5 @@
 @import-normalize; /* bring in normalize.css styles */
 
-:root{
-  --mobile: 320px;
-  --tablet: 768px;
-  --desktop: 1440px:
-
-}
-
-
 @font-face {
   font-family: Montserrat;
   font-style: normal;

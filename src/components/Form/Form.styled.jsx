@@ -6,11 +6,13 @@ import { SCREENS } from 'components/GlobalStyle';
 import { calcWidth } from 'utils';
 
 export const Form = styled(FormStyled)`
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
   margin-left: auto;
   margin-right: auto;
-  gap: 18px;
+  row-gap: 18px;
+  column-gap: 8px;
   margin-bottom: ${({ theme }) => calcWidth('50px', theme.width)};
 
   @media screen and (min-width: ${SCREENS.DESKTOP}) {
@@ -26,8 +28,11 @@ export const Label = styled.label`
   font-size: 14px;
   font-weight: 500;
   line-height: 1.28571;
-  margin-left: auto;
-  margin-right: auto;
+
+  @media screen and (max-width: ${SCREENS.PRETABLET}) {
+    margin-left: auto;
+    margin-right: auto;
+  }
 `;
 
 export const FieldStyled = styled(Field)`
@@ -117,10 +122,9 @@ export const List = styled.ul`
 
 export const MyNumberInputStyled = styled(MyNumberInput)`
   margin-top: 8px;
-  /* height: 48px; */
   padding: 14px 14px;
 
-  width: 160px;
+  /* width: 160px; */
   background: #f7f7fb;
   border: none;
   color: #121417;
@@ -138,9 +142,6 @@ export const MyNumberInputStyled = styled(MyNumberInput)`
 `;
 
 export const FieldPrice = styled(MyNumberInputStyled)`
-  /* width: 125px; */
-  border-radius: 14px;
-  font-family: Manrope;
   width: ${({ theme }) => calcWidth('115px', theme.width, 320)};
 
   @media screen and (min-width: ${SCREENS.TABLET}) {
@@ -150,6 +151,9 @@ export const FieldPrice = styled(MyNumberInputStyled)`
   @media screen and (min-width: ${SCREENS.DESKTOP}) {
     width: ${({ theme }) => calcWidth('125px', theme.width)};
   }
+
+  border-radius: 14px;
+  font-family: Manrope;
 
   &::placeholder {
     color: #121417;
@@ -245,13 +249,24 @@ export const SearchBtn = styled.button`
   text-align: center;
 `;
 
-export const TabletWrapper = styled.div`
+export const FieldWrapper = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   gap: 8px;
-  margin-left: auto;
-  margin-right: auto;
-  /* @media screen and (min-width: ${SCREENS.DESKTOP}) {
-    display: none;
-  } */
+
+  @media screen and (max-width: ${SCREENS.PRETABLET}) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+`;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: space-around;
+  gap: 8px;
+
+  @media screen and (max-width: ${SCREENS.PREDESKTOP}) {
+    margin-left: auto;
+    margin-right: auto;
+  }
 `;

@@ -15,6 +15,8 @@ import {
   DivWrapper,
   List,
   TabletWrapper,
+  FieldWrapper,
+  ButtonWrapper,
 } from './Form.styled';
 import { ReactComponent as OpenedSvg } from 'images/Form/opened.svg';
 import { ReactComponent as ClosedSvg } from 'images/Form/closed.svg';
@@ -89,7 +91,7 @@ export const FormSearch = ({ setQuery }) => {
         const { values, setFieldValue } = props;
         return (
           <Form>
-            <TabletWrapper>
+            <FieldWrapper>
               <Label>
                 Car brand
                 <Div>
@@ -145,7 +147,7 @@ export const FormSearch = ({ setQuery }) => {
                   <ErrorMessage name="rentalPrice" />
                 </Div>
               </Label>
-            </TabletWrapper>
+            </FieldWrapper>
             <Label>
               Сar mileage/km
               <DivWrapper>
@@ -172,7 +174,7 @@ export const FormSearch = ({ setQuery }) => {
                 </Div>
               </DivWrapper>
             </Label>
-            <TabletWrapper>
+            <ButtonWrapper>
               <SearchBtn className="accent-button" type="submit">
                 Search
               </SearchBtn>
@@ -187,7 +189,7 @@ export const FormSearch = ({ setQuery }) => {
               >
                 Reset
               </SearchBtn>
-            </TabletWrapper>
+            </ButtonWrapper>
           </Form>
         );
       }}
