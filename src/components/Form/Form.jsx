@@ -154,7 +154,7 @@ export const FormSearch = ({ setQuery }) => {
                   <FieldFrom
                     value={values.mileageFrom}
                     onValueChange={
-                      val => setFieldValue('mileageFrom', val.floatValue) // floatValue - NumericFormat method to get number
+                      val => setFieldValue('mileageFrom', val.floatValue) // floatValue - NumericFormat method to get number from string
                     }
                   />
                   <ErrorMessage name="mileageFrom" />
@@ -164,7 +164,7 @@ export const FormSearch = ({ setQuery }) => {
                   <FieldTo
                     value={values.mileageTo}
                     onValueChange={
-                      val => setFieldValue('mileageTo', val.floatValue) // floatValue - NumericFormat method to get number
+                      val => setFieldValue('mileageTo', val.floatValue) // floatValue - NumericFormat method to get number from string
                     }
                   />
 

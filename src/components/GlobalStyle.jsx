@@ -15,5 +15,6 @@ section {
   margin-left: auto;
   margin-right: auto;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 `;
