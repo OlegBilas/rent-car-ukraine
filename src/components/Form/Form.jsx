@@ -14,7 +14,6 @@ import {
   OpenDiv,
   DivWrapper,
   List,
-  TabletWrapper,
   FieldWrapper,
   ButtonWrapper,
 } from './Form.styled';
