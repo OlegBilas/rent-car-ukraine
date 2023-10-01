@@ -8,16 +8,24 @@ import { SCREENS } from 'components/GlobalStyle';
 export const Container = styled.div`
   position: relative;
   width: ${({ theme }) => calcWidth('296px', theme.width, 320)};
-
-  padding: 40px;
+  max-width: 100%;
+  max-height: 100vh;
+  overflow-y: scroll;
+  padding: 40px ${({ theme }) => calcWidth('12px', theme.width, 320)};
   border-radius: 24px;
   background: #fff;
   @media screen and (min-width: ${SCREENS.TABLET}) {
+    width: ${({ theme }) => calcWidth('720px', theme.width)};
+    padding: 40px;
+  }
+
+  @media screen and (min-width: ${SCREENS.DESKTOP}) {
     width: ${({ theme }) => calcWidth('541px', theme.width)};
   }
 `;
 
 export const Img = styled.img`
+  width: 100%;
   margin-bottom: 14px;
   border-radius: 14px;
 
