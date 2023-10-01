@@ -27,7 +27,7 @@ export const NavLink = styled(NavLinkForStyle)`
   text-decoration-line: none;
 
   @media screen and (min-width: 425px) {
-    font-size: ${({ theme }) => calcFontSize('18px', theme.width, 425)};
+    font-size: ${({ theme }) => calcFontSize('19px', theme.width, 425)};
   }
 
   @media screen and (min-width: ${SCREENS.TABLET}) {
