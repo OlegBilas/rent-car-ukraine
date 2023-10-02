@@ -223,7 +223,7 @@ export const FieldTo = styled(MyNumberInputStyled)`
   padding-left: ${({ theme }) => calcWidth('32px', theme.width, 320)};
   @media screen and (min-width: ${SCREENS.TABLET}) {
     width: 160px;
-    padding-left: 70px;
+    padding-left: 52px;
   }
 `;
 
