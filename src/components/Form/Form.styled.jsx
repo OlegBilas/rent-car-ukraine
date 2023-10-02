@@ -8,7 +8,8 @@ import { calcWidth } from 'utils';
 export const Form = styled(FormStyled)`
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
+  justify-items: center;
   margin-left: auto;
   margin-right: auto;
   row-gap: 18px;
@@ -16,10 +17,7 @@ export const Form = styled(FormStyled)`
   margin-bottom: ${({ theme }) => calcWidth('50px', theme.width)};
 
   @media screen and (min-width: ${SCREENS.DESKTOP}) {
-    display: flex;
-    justify-content: center;
     align-items: flex-end;
-    flex-wrap: nowrap;
   }
 `;
 
@@ -36,7 +34,6 @@ export const Label = styled.label`
 `;
 
 export const FieldStyled = styled(Field)`
-  /* height: 48px; */
   padding: 14px 18px;
   margin-top: 8px;
   box-sizing: border-box;
@@ -124,7 +121,6 @@ export const MyNumberInputStyled = styled(MyNumberInput)`
   margin-top: 8px;
   padding: 14px 14px;
 
-  /* width: 160px; */
   background: #f7f7fb;
   border: none;
   color: #121417;
@@ -164,7 +160,6 @@ export const OpenDiv = styled.div`
   position: absolute;
   width: 34px;
   height: 20px;
-  /* padding: 0px 14px; */
   z-index: 20;
 
   top: 22px;
