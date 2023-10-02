@@ -12,12 +12,11 @@ export const Container = styled.div`
   max-height: 100vh;
   box-sizing: border-box;
   overflow-y: scroll;
-  padding: 20px;
+  padding: 40px;
   border-radius: 24px;
   background: #fff;
   @media screen and (min-width: ${SCREENS.TABLET}) {
     width: ${({ theme }) => calcWidth('620px', theme.width, 768)};
-    padding: 40px;
   }
 
   @media screen and (min-width: ${SCREENS.DESKTOP}) {
