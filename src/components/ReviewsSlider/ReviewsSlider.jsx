@@ -20,9 +20,13 @@ import {
 
 import { useSelector } from 'react-redux';
 import { selectCars } from 'redux/cars/selectors';
+import { useTheme } from 'styled-components';
+import { substitudeImages } from 'utils';
 
 const ReviewsSlider = () => {
-  const cars = useSelector(selectCars);
+  let cars = useSelector(selectCars);
+  const theme = useTheme();
+  cars = substitudeImages(cars, 274, theme.width);
 
   SwiperCore.use([Autoplay]);
 

@@ -50,7 +50,10 @@ export const CarModal = ({ car, toggleModal }) => {
       </CloseBtn>
 
       <Img
-        src={car.img}
+        src={car.img.replace(
+          new RegExp('upload/(.*?)/'),
+          `upload/c_fill,g_auto,w_${461}/`
+        )}
         alt={`${car.make} ${car.model}, ${car.year}`}
         width="461"
       />
